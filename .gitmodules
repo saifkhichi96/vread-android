@@ -1,0 +1,6 @@
+[submodule "android/database"]
+	path = android/database
+	url = https://github.com/saifkhichi96/android-database
+[submodule "database"]
+	path = database
+	url = https://github.com/saifkhichi96/android-database

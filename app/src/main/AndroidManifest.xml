@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="sfllhkhan95.connect">
+
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.WRITE_REQUEST_CODE"/>
+
+  <application
+      android:name=".ConnectApplication"
+      android:allowBackup="true"
+      android:fullBackupContent="false"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme"
+      tools:ignore="GoogleAppIndexingWarning">
+
+    <!-- Launch screen: Entry point of the application -->
+    <activity
+        android:name=".core.ui.activity.SplashActivity"
+        android:screenOrientation="sensorPortrait"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+
+    <!-- Authentication -->
+    <activity android:name=".auth.ui.activity.SignInActivity"/>
+
+    <activity
+        android:name=".auth.ui.activity.ResetPasswordActivity"
+        android:parentActivityName=".auth.ui.activity.SignInActivity"/>
+
+    <activity
+        android:name=".auth.ui.activity.SignUpActivity"
+        android:parentActivityName=".auth.ui.activity.SignInActivity"/>
+
+
+    <!-- Forums -->
+    <activity
+        android:name=".chat.ui.activity.StartConversationActivity"
+        android:parentActivityName=".profile.ui.activity.ProfileActivity"/>
+
+    <activity
+        android:name=".chat.ui.activity.ConversationActivity"
+        android:parentActivityName=".core.ui.activity.HomeActivity"/>
+
+
+    <!-- Home -->
+    <activity android:name=".core.ui.activity.HomeActivity"/>
+
+    <!-- Profile -->
+    <activity
+        android:name=".profile.ui.activity.ProfileActivity"
+        android:parentActivityName=".core.ui.activity.HomeActivity"/>
+
+    <activity
+        android:name=".profile.ui.activity.EditProfileActivity"
+        android:parentActivityName=".profile.ui.activity.ProfileActivity"/>
+
+    <!-- Search -->
+    <activity
+        android:name=".core.ui.activity.SearchActivity"
+        android:launchMode="singleTop"
+        android:exported="false"
+        android:parentActivityName=".core.ui.activity.HomeActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.SEARCH"/>
+      </intent-filter>
+      <meta-data
+          android:name="android.app.searchable"
+          android:resource="@xml/searchable"/>
+    </activity>
+
+
+    <!-- Settings -->
+    <activity
+        android:name=".settings.ui.activity.SettingsActivity"
+        android:parentActivityName=".core.ui.activity.HomeActivity"/>
+
+    <activity
+        android:name=".auth.ui.activity.UpdatePasswordActivity"
+        android:parentActivityName=".settings.ui.activity.SettingsActivity"/>
+
+
+    <!-- Others -->
+    <activity android:name=".settings.ui.activity.HelpActivity"/>
+
+    <meta-data
+        android:name="com.google.firebase.messaging.default_notification_icon"
+        android:resource="@drawable/ic_notification"/>
+
+    <meta-data
+        android:name="com.google.firebase.messaging.default_notification_color"
+        android:resource="@color/color"/>
+
+    <service
+        android:name=".notifications.util.NotificationService"
+        android:exported="false">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
+
+  </application>
+</manifest>

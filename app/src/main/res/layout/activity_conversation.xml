@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDefault"
+    tools:context=".chat.ui.activity.ConversationActivity">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:paddingBottom="?actionBarSize"
+      android:gravity="center_horizontal"
+      android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?actionBarSize"
+        android:scrollbars="none"
+        android:paddingVertical="@dimen/activity_vertical_margin"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"/>
+
+    <LinearLayout
+        android:id="@+id/suggestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|end"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:visibility="gone">
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/suggestion0"
+          style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="8dp"
+          android:layout_marginRight="8dp"
+          android:text="Suggestion"
+          android:textAllCaps="false"
+          android:textSize="12sp"
+          app:cornerRadius="24dp"/>
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/suggestion1"
+          style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="8dp"
+          android:layout_marginRight="8dp"
+          android:text="Suggestion"
+          android:textAllCaps="false"
+          android:textSize="12sp"
+          app:cornerRadius="24dp"/>
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/suggestion2"
+          style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Suggestion"
+          android:textAllCaps="false"
+          android:textSize="12sp"
+          app:cornerRadius="24dp"/>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/commentBar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:padding="8dp"
+      app:elevation="0dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        app:boxCornerRadiusBottomEnd="21dp"
+        app:boxCornerRadiusBottomStart="21dp"
+        app:boxCornerRadiusTopEnd="21dp"
+        app:boxCornerRadiusTopStart="21dp"
+        app:boxBackgroundColor="@color/colorNeutral"
+        app:hintEnabled="false">
+
+      <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/messageInput"
+          android:layout_width="match_parent"
+          android:layout_height="39dp"
+          android:background="@null"
+          android:gravity="center_vertical"
+          android:hint="Type a message ..."
+          android:inputType="text"
+          android:maxLines="1"
+          android:paddingStart="16dp"
+          android:paddingLeft="16dp"
+          android:paddingTop="0dp"
+          android:paddingEnd="?actionBarSize"
+          android:paddingRight="?actionBarSize"
+          android:paddingBottom="0dp"
+          android:textColor="@color/colorDefault"
+          android:textColorHint="@color/colorDisabled"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sendMessage"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="?actionBarSize"
+        android:layout_height="39dp"
+        android:layout_marginStart="-48dp"
+        android:layout_marginLeft="-48dp"
+        app:icon="@drawable/ic_action_send"
+        app:iconTint="?attr/colorPrimaryDark"/>
+
+  </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

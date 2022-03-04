@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".core.ui.activity.HomeActivity">
+
+  <com.google.android.material.appbar.AppBarLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="top"
+      android:background="?attr/colorPrimaryDark"
+      android:theme="@style/AppTheme.AppBarOverlay">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+
+      <androidx.appcompat.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+      <LinearLayout
+          android:layout_width="?actionBarSize"
+          android:layout_height="?actionBarSize"
+          android:gravity="center">
+
+        <sfllhkhan95.connect.profile.ui.view.AvatarView
+            android:id="@+id/avatar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:cardCornerRadius="16dp"/>
+
+      </LinearLayout>
+
+      <androidx.appcompat.widget.SearchView
+          android:id="@+id/searchView"
+          android:layout_width="match_parent"
+          android:layout_height="32dp"
+          android:layout_centerVertical="true"
+          android:layout_marginStart="?actionBarSize"
+          android:layout_marginLeft="?actionBarSize"
+          android:layout_marginEnd="?actionBarSize"
+          android:layout_marginRight="?actionBarSize"
+          android:focusable="false"
+          android:focusableInTouchMode="true"
+          android:theme="@style/AppTheme.AppBarOverlay"
+          app:iconifiedByDefault="false"
+          app:queryHint="@string/hint_search"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        app:tabIndicatorColor="@color/colorDefault"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorDefault"
+        app:tabTextAppearance="@style/TextAppearance.MaterialComponents.Button"
+        app:tabTextColor="@color/colorNeutral"/>
+
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.viewpager2.widget.ViewPager2
+      android:id="@+id/profileContent"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/chat_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|end"
+      android:layout_margin="@dimen/activity_horizontal_margin"
+      android:visibility="gone"
+      app:fabSize="normal"
+      app:srcCompat="@drawable/ic_nav_chats"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

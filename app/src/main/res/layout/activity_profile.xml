@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDisabled"
+    android:fitsSystemWindows="true"
+    tools:context=".profile.ui.activity.ProfileActivity">
+
+  <com.google.android.material.appbar.AppBarLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="top"
+      android:background="?attr/colorPrimaryDark"
+      android:theme="@style/AppTheme.AppBarOverlay">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:fitsSystemWindows="true"
+        app:contentScrim="?attr/colorPrimaryDark"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          app:layout_collapseMode="parallax">
+
+        <sfllhkhan95.connect.profile.ui.view.CoverView
+            android:id="@+id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.75"
+            android:background="@android:color/black"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/profileSummary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/summaryIndicators"
+            android:layout_marginStart="?actionBarSize"
+            android:layout_marginTop="?actionBarSize"
+            android:layout_marginEnd="?actionBarSize"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/summaryIndicators"
+            android:layout_width="16dp"
+            android:layout_height="8dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="?actionBarSize"
+            android:alpha="0.75"
+            android:background="@android:color/transparent"
+            app:tabBackground="@drawable/bg_indicator_inactive"
+            app:tabIndicator="@drawable/bg_indicator_active"
+            app:tabIndicatorColor="?attr/colorAccent"
+            app:tabIndicatorGravity="center"
+            app:tabIndicatorHeight="8dp">
+
+          <com.google.android.material.tabs.TabItem
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+
+          <com.google.android.material.tabs.TabItem
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+      </RelativeLayout>
+
+      <androidx.appcompat.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="96dp"
+          android:layout_alignParentTop="true"
+          android:gravity="top"
+          android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+          app:layout_collapseMode="pin"/>
+
+      <com.google.android.material.tabs.TabLayout
+          android:id="@+id/profileSections"
+          android:layout_width="match_parent"
+          android:layout_height="96dp"
+          android:layout_gravity="bottom|center_horizontal"
+          android:background="@android:color/transparent"
+          android:foregroundGravity="center"
+          app:layout_collapseMode="pin"
+          app:tabIndicatorColor="?attr/colorAccent"
+          app:tabMode="fixed"
+          app:tabPaddingTop="48dp"
+          app:tabSelectedTextColor="@android:color/white"
+          app:tabTextColor="@android:color/darker_gray">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_posts"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_followers"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_following"/>
+
+      </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+  </com.google.android.material.appbar.AppBarLayout>
+
+  <androidx.viewpager.widget.ViewPager
+      android:id="@+id/profileContent"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+  <LinearLayout
+      android:id="@+id/profileContentDisallowed"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="256dp"
+      android:gravity="center"
+      android:orientation="vertical"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="80dp"
+        android:layout_height="88dp"
+        android:padding="16dp"
+        app:cornerRadius="40dp"
+        app:icon="@drawable/ic_lock"
+        app:iconSize="48dp"
+        app:iconTint="@color/colorNeutral"
+        app:strokeColor="@color/colorNeutral"
+        app:strokeWidth="1dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:gravity="center"
+        android:text="This account is private.\nFollow to view their posts."
+        android:textColor="@color/colorNeutral"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/action_follow"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_follow"/>
+
+  </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="2dp"
+              android:gravity="start"
+              android:orientation="vertical">
+
+  <View
+      android:id="@+id/spacing"
+      android:layout_width="match_parent"
+      android:layout_height="8dp"/>
+
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      tools:ignore="UselessParent">
+
+    <TextView
+        android:id="@+id/sender"
+        style="@style/TextAppearance.MaterialComponents.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/ph_name"
+        android:textColor="@color/colorDisabledInverse"/>
+
+    <LinearLayout
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:gravity="start|top"
+        android:orientation="horizontal">
+
+      <sfllhkhan95.connect.profile.ui.view.AvatarView
+          android:id="@+id/avatar"
+          android:layout_width="24dp"
+          android:layout_height="24dp"
+          android:layout_marginStart="4dp"
+          android:layout_marginLeft="4dp"
+          app:cardCornerRadius="12dp"/>
+
+      <com.google.android.material.card.MaterialCardView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="4dp"
+          android:layout_marginLeft="4dp"
+          app:cardBackgroundColor="@color/colorNeutral"
+          app:cardCornerRadius="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sendMessageButton"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="12dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="4dp"
+            android:text="@string/ph_message"
+            android:textColor="@color/colorDefault"/>
+
+      </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/timestamp"
+        style="@style/TextAppearance.MaterialComponents.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:animateLayoutChanges="true"
+        android:text="@string/ph_timestamp"
+        android:textColor="@color/colorNeutral"
+        android:textSize="10sp"
+        tools:ignore="SmallSp"/>
+
+  </LinearLayout>
+
+</LinearLayout>

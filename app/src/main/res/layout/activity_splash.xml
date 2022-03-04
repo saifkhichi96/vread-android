@@ -1,0 +1,102 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimaryDark"
+            tools:context=".core.ui.activity.SplashActivity">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:paddingStart="@dimen/activity_horizontal_margin"
+      android:paddingTop="@dimen/activity_vertical_margin"
+      android:paddingEnd="@dimen/activity_horizontal_margin"
+      android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:alpha="0.0"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo"
+        android:tint="@android:color/white"
+        android:translationY="500px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.0"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+      <com.google.android.material.textfield.TextInputLayout
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/activity_vertical_margin"
+          android:hint="@string/hint_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/hint_password"
+          app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.button.MaterialButton
+          style="@style/Widget.MaterialComponents.Button.TextButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="start"
+          android:text="@string/label_forgot_password"
+          android:textAllCaps="false"
+          android:textColor="?attr/colorPrimaryDark"/>
+
+      <com.google.android.material.button.MaterialButton
+          style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+          android:layout_width="match_parent"
+          android:layout_height="42dp"
+          android:layout_marginTop="@dimen/activity_vertical_margin"
+          android:text="@string/label_sign_in"
+          app:backgroundTint="?attr/colorPrimaryDark"/>
+
+      <androidx.appcompat.widget.AppCompatTextView
+          style="@style/TextAppearance.MaterialComponents.Caption"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/activity_horizontal_margin"
+          android:text="OR"/>
+
+      <com.google.android.material.button.MaterialButton
+          style="@style/Widget.MaterialComponents.Button.TextButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Create an account"
+          android:textColor="?attr/colorPrimaryDark"/>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <color name="colorDefaultInverse">@android:color/white</color>
+  <color name="colorDefault">@android:color/black</color>
+  <color name="colorDisabledInverse">#F8F8F8</color>
+  <color name="colorDisabled">#080808</color>
+
+</resources>

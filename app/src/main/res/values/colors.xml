@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Default -->
+  <color name="color">#8200e8</color>
+  <color name="colorDark">#4A148C</color>
+  <color name="colorAccent">#FF4081</color>
+
+  <!-- Twitter -->
+  <color name="colorRavenclaw">#222f5b</color>
+  <color name="colorRavenclawDark">#0e1a40</color>
+  <color name="colorRavenclawAccent">#5d5d5d</color>
+
+  <!-- Reddit -->
+  <color name="colorHufflepuff">#eeba30</color>
+  <color name="colorHufflepuffDark">#c28b00</color>
+  <color name="colorHufflepuffAccent">#726255</color>
+
+  <!-- Instagram -->
+  <color name="colorGryffindor">#ae0001</color>
+  <color name="colorGryffindorDark">#740001</color>
+  <color name="colorGryffindorAccent">#eeba30</color>
+
+  <!-- WhatsApp -->
+  <color name="colorSlytherin">#2a623d</color>
+  <color name="colorSlytherinDark">#1a472a</color>
+  <color name="colorSlytherinAccent">#5d5d5d</color>
+
+  <!-- Night -->
+  <color name="night">#636363</color>
+  <color name="nightDark">#424242</color>
+
+  <!-- Some common colors -->
+  <color name="colorCaution">#B71C1C</color>
+  <color name="colorDefault">@android:color/white</color>
+  <color name="colorDefaultInverse">@android:color/black</color>
+  <color name="colorNeutral">@android:color/darker_gray</color>
+  <color name="colorDisabled">#F8F8F8</color>
+  <color name="colorDisabledInverse">#080808</color>
+
+</resources>
