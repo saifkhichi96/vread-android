@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/activity_horizontal_margin">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/book_category"
+        style="@style/TextAppearance.Material3.HeadlineSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="48dp"
+        tools:text="@tools:sample/lorem" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/more_button"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="-32dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:padding="4dp"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_more"
+        app:iconSize="24dp" />
+
+</LinearLayout>

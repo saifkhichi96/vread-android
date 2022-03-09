@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Personal Library</string>
+
+    <!-- Activity titles -->
+    <string name="title_activity_library">Library</string>
+    <string name="title_activity_edit_book">Edit Book</string>
+    <string name="title_activity_add_book">Add Book</string>
+
+    <!-- Formatting strings -->
+    <string name="book_isbn">ISBN: %s</string>
+    <string name="book_category"><![CDATA[%s > %s]]></string>
+    <string name="book_category_none">Uncategorized</string>
+    <string name="book_publish_year">. Published in %s.</string>
+    <string name="book_publisher">%s%s</string>
+
+    <!-- Default values -->
+    <string name="book_publisher_none">Unknown Publisher</string>
+    <string name="book_description_none">No description available.</string>
+    <string name="value_none">N/A</string>
+
+    <!-- UI labels (buttons, section headings, etc.) -->
+    <string name="label_book_language">Language</string>
+    <string name="label_book_format">Format</string>
+    <string name="label_book_pages">Pages</string>
+    <string name="label_book_description">Description</string>
+    <string name="book_cover_error">Failed to upload book cover.</string>
+    <string name="book_cover_select">Select Book Cover</string>
+
+    <!-- Menu actions -->
+    <string name="action_edit">Edit</string>
+    <string name="action_save">Save</string>
+    <string name="action_scan">Scan Book</string>
+    <string name="action_search">Search</string>
+
+    <!-- Input hints -->
+    <string name="hint_search">Search by ISBN, title, author, …</string>
+    <string name="hint_book_title">Title</string>
+    <string name="hint_book_authors">Author(s)</string>
+    <string name="hint_book_category">Category</string>
+    <string name="hint_book_subcategory">Sub Category</string>
+    <string name="hint_book_pages">Page Count</string>
+    <string name="hint_book_format">Format</string>
+    <string name="hint_book_lang">Language</string>
+    <string name="hint_book_publisher">Publisher</string>
+    <string name="hint_book_publish_year">YYYY</string>
+    <string name="hint_book_isbn">ISBN</string>
+    <string name="hint_book_description">Description</string>
+    <string name="action_add">Add Book</string>
+
+</resources>
