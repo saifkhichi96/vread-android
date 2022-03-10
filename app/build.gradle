@@ -14,7 +14,7 @@ android {
     compileSdkVersion 32
     defaultConfig {
         applicationId "sfllhkhan95.connect"
-        minSdkVersion 19
+        minSdkVersion 24
         targetSdkVersion 32
         versionCode 1
         versionName "1.0.0"

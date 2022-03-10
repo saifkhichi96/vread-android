@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.dokka'
+    id 'maven-publish'
+}
+
+android {
+    compileSdkVersion 32
+    defaultConfig {
+        versionCode 1
+        versionName "1.0.0"
+        minSdkVersion 24
+        targetSdkVersion 32
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.10"
+
+    // Kotlin coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$kotlin_coroutines_version"
+
+    // Dependency injection with Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    // SharedPreferences management with Hawk
+    implementation "com.orhanobut:hawk:2.0.1"
+
+    // Firebase for remote database
+    implementation platform("com.google.firebase:firebase-bom:29.0.4")
+    implementation "com.google.firebase:firebase-database-ktx"
+}
+
+def props = new Properties()
+props.load(new FileInputStream(rootProject.file("github.properties")))
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                // Replace with your own group ID.
+                groupId 'io.github.saifkhichi96'
+
+                // Replace with the name of your library
+                artifactId 'android-database'
+                version '1.0.0'
+            }
+
+            debug(MavenPublication) {
+                from components.debug
+
+                // Replace with your own group ID.
+                groupId 'io.github.saifkhichi96'
+
+                // Replace with the name of your library
+                artifactId 'android-database'
+                version '1.0.0'
+            }
+        }
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/saifkhichi96/android-database")
+                credentials {
+                    username = props.user
+                    password = props.key
+                }
+            }
+        }
+    }
+}
+
+tasks.dokkaJekyll.configure {
+    outputDirectory.set(file("docs/"))
+}
