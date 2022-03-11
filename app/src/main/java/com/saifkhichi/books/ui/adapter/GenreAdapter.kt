@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.color.ColorRoles
 import com.google.android.material.color.MaterialColors
-import com.saifkhichi.books.R
-import com.saifkhichi.books.databinding.ViewCategoryBinding
 import com.saifkhichi.books.ui.holder.BookGenreButtonHolder
+import sfllhkhan95.connect.R
+import sfllhkhan95.connect.databinding.ViewCategoryBinding
 
 class GenreAdapter(
     private val context: AppCompatActivity,
-    private val dataset: List<String>
+    private val dataset: List<String>,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var onItemClicked: ((String) -> Unit)? = null

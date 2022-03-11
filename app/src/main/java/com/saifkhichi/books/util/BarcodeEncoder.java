@@ -12,10 +12,10 @@ import java.util.Map;
 
 /**
  * Helper class for encoding barcodes as a Bitmap.
- *
+ * <p>
  * Adapted from QRCodeEncoder, from the zxing project:
  * https://github.com/zxing/zxing
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0.
  */
 public class BarcodeEncoder {
@@ -30,7 +30,7 @@ public class BarcodeEncoder {
         this.bgColor = bgColor;
     }
 
-    public void setForegroundColor(@ColorInt int fgColor)  {
+    public void setForegroundColor(@ColorInt int fgColor) {
         this.fgColor = fgColor;
     }
 

@@ -13,9 +13,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
-import com.saifkhichi.books.R
 import com.saifkhichi.books.data.repo.BooksRepository
-import com.saifkhichi.books.databinding.ActivityBooksListBinding
 import com.saifkhichi.books.model.Book
 import com.saifkhichi.books.ui.activity.BookDetailsActivity.Companion.EXTRA_BOOK
 import com.saifkhichi.books.ui.activity.BookDetailsActivity.Companion.EXTRA_USER_ADMIN
@@ -23,6 +21,8 @@ import com.saifkhichi.books.ui.activity.BookDetailsActivity.Companion.EXTRA_USER
 import com.saifkhichi.books.ui.adapter.LibraryAdapter
 import com.saifkhichi.books.ui.viewmodel.BooksViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import sfllhkhan95.connect.R
+import sfllhkhan95.connect.databinding.ActivityBooksListBinding
 import javax.inject.Inject
 
 @AndroidEntryPoint

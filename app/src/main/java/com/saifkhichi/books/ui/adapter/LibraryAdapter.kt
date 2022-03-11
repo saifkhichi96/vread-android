@@ -9,21 +9,21 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.saifkhichi.books.R
-import com.saifkhichi.books.databinding.ViewBookCategoryBinding
-import com.saifkhichi.books.databinding.ViewBookListBinding
 import com.saifkhichi.books.model.Book
 import com.saifkhichi.books.ui.activity.BooksListActivity
 import com.saifkhichi.books.ui.holder.BookGenreLabelHolder
 import com.saifkhichi.books.ui.holder.BookListHolder
 import kotlinx.coroutines.launch
+import sfllhkhan95.connect.R
+import sfllhkhan95.connect.databinding.ViewBookCategoryBinding
+import sfllhkhan95.connect.databinding.ViewBookListBinding
 import kotlin.math.roundToInt
 
 
 class LibraryAdapter(
     private val context: BooksListActivity,
     private val dataset: ArrayList<LibraryListItem<out Any>>,
-    private val grid: Boolean = false
+    private val grid: Boolean = false,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
     private var filteredDataset = ArrayList<LibraryListItem<out Any>>()

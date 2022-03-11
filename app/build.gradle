@@ -57,7 +57,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.activity:activity-ktx:1.5.1"  // for 'by viewModels'
     implementation "androidx.appcompat:appcompat:1.5.1"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     implementation "com.google.android.material:material:1.6.1"
+    implementation "androidx.multidex:multidex:2.0.1"
 
     // Kotlin language
     implementation "androidx.core:core-ktx:$kotlin_version"
@@ -88,8 +90,17 @@ dependencies {
     implementation "com.google.mlkit:language-id:17.0.4"
     implementation "com.google.mlkit:smart-reply:17.0.2"
 
-    // Volley
+    // Accessing the Google Books API with Volley
     implementation "com.android.volley:volley:1.2.1"
+    implementation "com.google.apis:google-api-services-books:v1-rev20220318-2.0.0"
+    implementation "com.google.http-client:google-http-client-android:1.42.2"
+
+    // SharedPreferences management with Hawk
+    implementation "com.orhanobut:hawk:2.0.1"
+
+    // Barcode generation with ZXing
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0") { transitive = false }
+    implementation "com.google.zxing:core:3.5.0"
 
     // Glide
     implementation "com.github.bumptech.glide:glide:4.13.2"
@@ -100,6 +111,7 @@ dependencies {
 //    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_plugin_version"
 
     implementation project(path: ':database')
+    implementation project(path: ':storage')
 }
 
 kapt {

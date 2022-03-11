@@ -14,15 +14,15 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.google.zxing.BarcodeFormat
-import com.saifkhichi.books.R
 import com.saifkhichi.books.data.source.BooksDataSource
 import com.saifkhichi.books.data.source.GoogleBooksAPI
-import com.saifkhichi.books.databinding.ActivityBookDetailsBinding
 import com.saifkhichi.books.model.Book
 import com.saifkhichi.books.util.BarcodeEncoder
 import com.saifkhichi.storage.CloudFileStorage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import sfllhkhan95.connect.R
+import sfllhkhan95.connect.databinding.ActivityBookDetailsBinding
 import javax.inject.Inject
 
 

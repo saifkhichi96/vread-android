@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.saifkhichi.books.data.repo.BooksRepository
-import com.saifkhichi.books.databinding.ActivityLibraryBinding
 import com.saifkhichi.books.ui.adapter.GenreAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import sfllhkhan95.connect.databinding.ActivityLibraryBinding
 import javax.inject.Inject
 
 @AndroidEntryPoint

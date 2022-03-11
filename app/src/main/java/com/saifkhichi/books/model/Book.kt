@@ -14,9 +14,9 @@ import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.google.api.services.books.v1.model.Volume
 import com.google.api.services.books.v1.model.Volume.VolumeInfo
-import com.saifkhichi.books.R
 import com.saifkhichi.storage.CloudFileStorage
 import kotlinx.coroutines.launch
+import sfllhkhan95.connect.R
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.Serializable
@@ -75,7 +75,8 @@ data class Book(
         if (publishedOn <= 0) publishedOn = Integer.parseInt(volumeInfo?.publishedDate?.split("-")?.first() ?: "0")
         if (pageCount <= 0) pageCount = volumeInfo?.pageCount ?: 0
         if (lang.isBlank()) lang = Locale(volumeInfo?.language ?: "en").displayLanguage
-        if (excerpt.isBlank()) excerpt = Html.fromHtml(volume.searchInfo?.textSnippet ?: "" , Html.FROM_HTML_MODE_LEGACY).toString()
+        if (excerpt.isBlank()) excerpt =
+            Html.fromHtml(volume.searchInfo?.textSnippet ?: "", Html.FROM_HTML_MODE_LEGACY).toString()
     }
 
     /**

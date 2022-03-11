@@ -13,10 +13,8 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
-import com.saifkhichi.books.R
 import com.saifkhichi.books.data.repo.BooksRepository
 import com.saifkhichi.books.data.source.GoogleBooksAPI
-import com.saifkhichi.books.databinding.ActivityEditBookBinding
 import com.saifkhichi.books.model.Book
 import com.saifkhichi.books.model.Book.Companion.toByteArray
 import com.saifkhichi.books.model.Format
@@ -24,6 +22,8 @@ import com.saifkhichi.books.ui.activity.BookDetailsActivity.Companion.EXTRA_BOOK
 import com.saifkhichi.storage.CloudFileStorage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import sfllhkhan95.connect.R
+import sfllhkhan95.connect.databinding.ActivityEditBookBinding
 import javax.inject.Inject
 
 @AndroidEntryPoint

@@ -5,15 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.saifkhichi.books.databinding.ViewBookBinding
 import com.saifkhichi.books.model.Book
 import com.saifkhichi.books.ui.holder.BookHolder
+import sfllhkhan95.connect.databinding.ViewBookBinding
 import kotlin.math.roundToInt
 
 class BookAdapter(
     private val context: AppCompatActivity,
     private val dataset: List<Pair<Book, Boolean>>,
-    private val itemWidth: Int
+    private val itemWidth: Int,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var onItemClicked: ((Book, View) -> Unit)? = null

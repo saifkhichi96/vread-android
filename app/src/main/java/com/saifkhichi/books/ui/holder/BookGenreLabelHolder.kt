@@ -2,7 +2,7 @@ package com.saifkhichi.books.ui.holder
 
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.saifkhichi.books.databinding.ViewBookCategoryBinding
+import sfllhkhan95.connect.databinding.ViewBookCategoryBinding
 
 class BookGenreLabelHolder(binding: ViewBookCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
 

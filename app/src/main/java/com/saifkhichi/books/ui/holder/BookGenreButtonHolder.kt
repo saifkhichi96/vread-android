@@ -1,7 +1,7 @@
 package com.saifkhichi.books.ui.holder
 
 import androidx.recyclerview.widget.RecyclerView
-import com.saifkhichi.books.databinding.ViewCategoryBinding
+import sfllhkhan95.connect.databinding.ViewCategoryBinding
 
 class BookGenreButtonHolder(val binding: ViewCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
 
