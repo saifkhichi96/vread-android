@@ -5,7 +5,7 @@
                                                      android:layout_width="match_parent"
                                                      android:layout_height="match_parent"
                                                      android:background="@color/colorDisabled"
-                                                     tools:context=".core.ui.activity.SearchActivity">
+                                                     tools:context="dev.aspirasoft.vread.core.ui.activity.SearchActivity">
 
   <com.google.android.material.appbar.AppBarLayout
       android:layout_width="match_parent"
@@ -50,7 +50,7 @@
         android:orientation="vertical">
 
       <!-- Search results displayed in this layout -->
-      <sfllhkhan95.connect.core.ui.view.NestedListView
+      <dev.aspirasoft.vread.core.ui.view.NestedListView
           android:id="@+id/searchResults"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"

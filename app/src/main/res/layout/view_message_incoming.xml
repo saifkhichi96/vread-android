@@ -37,7 +37,7 @@
         android:gravity="start|top"
         android:orientation="horizontal">
 
-      <sfllhkhan95.connect.profile.ui.view.AvatarView
+      <dev.aspirasoft.vread.profile.ui.view.AvatarView
           android:id="@+id/avatar"
           android:layout_width="24dp"
           android:layout_height="24dp"

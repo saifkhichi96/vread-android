@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorTertiaryContainer"
-    tools:context="com.saifkhichi.books.ui.activity.BooksListActivity">
+    tools:context="dev.aspirasoft.vread.books.ui.activity.BooksListActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

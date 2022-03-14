@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDefault"
-    tools:context=".chat.ui.activity.ConversationActivity">
+    tools:context="dev.aspirasoft.vread.chat.ui.activity.ConversationActivity">
 
   <LinearLayout
       android:layout_width="match_parent"

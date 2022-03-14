@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".core.ui.activity.HomeActivity">
+    tools:context="dev.aspirasoft.vread.core.ui.activity.HomeActivity">
 
   <com.google.android.material.appbar.AppBarLayout
       android:layout_width="match_parent"
@@ -29,7 +29,7 @@
           android:layout_height="?actionBarSize"
           android:gravity="center">
 
-        <sfllhkhan95.connect.profile.ui.view.AvatarView
+        <dev.aspirasoft.vread.profile.ui.view.AvatarView
             android:id="@+id/avatar"
             android:layout_width="32dp"
             android:layout_height="32dp"

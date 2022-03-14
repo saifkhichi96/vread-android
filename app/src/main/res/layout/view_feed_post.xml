@@ -18,7 +18,7 @@
       android:paddingVertical="8dp">
 
     <!-- Author Photo -->
-    <sfllhkhan95.connect.profile.ui.view.AvatarView
+    <dev.aspirasoft.vread.profile.ui.view.AvatarView
         android:id="@+id/post_author_photo"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -53,7 +53,7 @@
   </LinearLayout>
 
   <!-- Post Media -->
-  <sfllhkhan95.connect.feed.ui.view.SquareFrameLayout
+  <dev.aspirasoft.vread.feed.ui.view.SquareFrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent">
 
@@ -71,7 +71,7 @@
         android:src="@drawable/placeholder_cover"
         android:scaleType="centerCrop"/>
 
-  </sfllhkhan95.connect.feed.ui.view.SquareFrameLayout>
+  </dev.aspirasoft.vread.feed.ui.view.SquareFrameLayout>
 
   <LinearLayout
       android:layout_width="match_parent"

@@ -4,7 +4,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/colorPrimaryDark"
-            tools:context=".core.ui.activity.SplashActivity">
+            tools:context="dev.aspirasoft.vread.core.ui.activity.SplashActivity">
 
   <LinearLayout
       android:layout_width="match_parent"

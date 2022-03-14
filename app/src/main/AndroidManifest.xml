@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="sfllhkhan95.connect">
+          package="dev.aspirasoft.vread">
 
   <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
@@ -10,7 +10,7 @@
   <uses-permission android:name="android.permission.WRITE_REQUEST_CODE"/>
 
   <application
-      android:name=".ConnectApplication"
+      android:name=".MyApplication"
       android:allowBackup="true"
       android:fullBackupContent="false"
       android:icon="@mipmap/ic_launcher"
@@ -91,10 +91,10 @@
         android:parentActivityName=".settings.ui.activity.SettingsActivity"/>
 
     <!-- Library -->
-    <activity android:name="com.saifkhichi.books.ui.activity.LibraryActivity"/>
-    <activity android:name="com.saifkhichi.books.ui.activity.BooksListActivity" />
-    <activity android:name="com.saifkhichi.books.ui.activity.EditBookActivity" />
-    <activity android:name="com.saifkhichi.books.ui.activity.BookDetailsActivity" />
+    <activity android:name=".books.ui.fragment.LibraryFragment"/>
+    <activity android:name=".books.ui.activity.BooksListActivity" />
+    <activity android:name=".books.ui.activity.EditBookActivity" />
+    <activity android:name=".books.ui.activity.BookDetailsActivity" />
 
 
     <!-- Others -->
