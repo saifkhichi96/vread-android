@@ -5,22 +5,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import dev.aspirasoft.vread.R
-import dev.aspirasoft.vread.chat.ui.activity.StartConversationActivity
 import dev.aspirasoft.vread.core.ui.adapter.ContentAdapter
+import dev.aspirasoft.vread.databinding.ActivityHomeBinding
+import dev.aspirasoft.vread.notifications.ui.activity.NotificationsActivity
 import dev.aspirasoft.vread.notifications.util.TokenReceiver
-import dev.aspirasoft.vread.settings.ui.activity.SettingsActivity
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeActivity : SecureActivity() {
+
+    private lateinit var binding: ActivityHomeBinding
+    private lateinit var searchView: SearchView
 
     private lateinit var mTokenReceiver: TokenReceiver
 
@@ -29,13 +28,15 @@ class HomeActivity : SecureActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Set up action bar
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
 
         // Set up search
+        searchView = binding.searchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(text: String?): Boolean {
                 onSearchRequested()
@@ -46,11 +47,6 @@ class HomeActivity : SecureActivity() {
                 return false
             }
         })
-
-        findViewById<View>(R.id.chat_button).visibility = View.VISIBLE
-        chat_button.setOnClickListener {
-            startActivity(Intent(this, StartConversationActivity::class.java))
-        }
     }
 
     override fun onSearchRequested(): Boolean {
@@ -90,11 +86,10 @@ class HomeActivity : SecureActivity() {
                 mTokenReceiver = TokenReceiver(uid)
                 lifecycleScope.launch { mTokenReceiver.requestNewToken() }
             }
-            avatar.showUser(uid)
 
             // Set up pages and navigation
             if (!::contentAdapter.isInitialized) createContent(uid)
-            profileContent.currentItem = savedContentPosition
+            binding.profileContent.currentItem = savedContentPosition
         }
 
         searchView.clearFocus()
@@ -104,7 +99,7 @@ class HomeActivity : SecureActivity() {
 
     override fun onPause() {
         if (::mTokenReceiver.isInitialized) mTokenReceiver.unregister(this)
-        savedContentPosition = profileContent.currentItem
+        savedContentPosition = binding.profileContent.currentItem
         super.onPause()
     }
 
@@ -120,28 +115,43 @@ class HomeActivity : SecureActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_settings) {
-            startActivity(Intent(this, SettingsActivity::class.java))
-            return true
+        return when (item.itemId) {
+            R.id.action_notifications -> {
+                startActivity(Intent(this, NotificationsActivity::class.java))
+                true
+            }
+            else -> false
         }
+    }
 
-        return false
+    override fun onBackPressed() {
+        super.onSupportNavigateUp()
     }
 
     private fun createContent(uid: String) {
-        contentAdapter = ContentAdapter(this, uid)
-        profileContent.adapter = contentAdapter
-        profileContent.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                when (position) {
-                    0 -> findViewById<View>(R.id.chat_button).visibility = View.VISIBLE
-                    else -> findViewById<View>(R.id.chat_button).visibility = View.GONE
+        contentAdapter = ContentAdapter(supportFragmentManager, uid)
+        binding.profileContent.adapter = contentAdapter
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu_home -> {
+                    binding.profileContent.currentItem = 0
+                    true
                 }
+                R.id.menu_reading -> {
+                    binding.profileContent.currentItem = 1
+                    true
+                }
+                R.id.menu_favorites -> {
+                    binding.profileContent.currentItem = 2
+                    true
+                }
+                R.id.menu_profile -> {
+                    binding.profileContent.currentItem = 3
+                    true
+                }
+                else -> false
             }
-        })
-        TabLayoutMediator(navigation, profileContent) { tab, position ->
-            tab.text = contentAdapter.getPageTitle(position)
-        }.attach()
+        }
     }
 
 }

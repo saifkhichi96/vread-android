@@ -12,14 +12,14 @@ import dev.aspirasoft.vread.books.data.repo.BooksRepository
 import dev.aspirasoft.vread.books.ui.activity.BookDetailsActivity
 import dev.aspirasoft.vread.books.ui.activity.BooksListActivity
 import dev.aspirasoft.vread.books.ui.adapter.GenreAdapter
-import dev.aspirasoft.vread.databinding.ActivityLibraryBinding
+import dev.aspirasoft.vread.databinding.FragmentLibraryBinding
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class LibraryFragment : Fragment() {
 
-    lateinit var binding: ActivityLibraryBinding
+    lateinit var binding: FragmentLibraryBinding
 
     @Inject
     lateinit var repo: BooksRepository
@@ -28,7 +28,7 @@ class LibraryFragment : Fragment() {
     private var currentUserAdmin: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = ActivityLibraryBinding.inflate(inflater, container, false)
+        binding = FragmentLibraryBinding.inflate(inflater, container, false)
 
         currentUserId = arguments?.getString("user") ?: ""
         currentUserAdmin = arguments?.getBoolean("edit_mode") ?: false

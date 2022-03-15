@@ -80,18 +80,13 @@
           android:resource="@xml/searchable"/>
     </activity>
 
+    <activity android:name=".notifications.ui.activity.NotificationsActivity"/>
+
 
     <!-- Settings -->
-    <activity
-        android:name=".settings.ui.activity.SettingsActivity"
-        android:parentActivityName=".core.ui.activity.HomeActivity"/>
-
-    <activity
-        android:name=".auth.ui.activity.UpdatePasswordActivity"
-        android:parentActivityName=".settings.ui.activity.SettingsActivity"/>
+    <activity android:name=".auth.ui.activity.UpdatePasswordActivity"/>
 
     <!-- Library -->
-    <activity android:name=".books.ui.fragment.LibraryFragment"/>
     <activity android:name=".books.ui.activity.BooksListActivity" />
     <activity android:name=".books.ui.activity.EditBookActivity" />
     <activity android:name=".books.ui.activity.BookDetailsActivity" />
