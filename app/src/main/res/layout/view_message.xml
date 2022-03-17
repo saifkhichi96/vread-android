@@ -1,74 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
     android:orientation="vertical">
 
-  <TextView
-      android:id="@+id/date"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:gravity="center"
-      android:padding="9dp"
-      android:textAllCaps="true"
-      android:textColor="#403C3A"
-      android:textSize="13sp"/>
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_marginTop="3dp"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:id="@+id/ll_chat">
-
-    <LinearLayout
-        android:id="@+id/fr_chat"
+    <TextView
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_message_outgoing"
-        android:padding="5dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp">
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="9dp"
+        android:textAllCaps="true"
+        android:textColor="#403C3A"
+        android:textSize="13sp" />
 
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="3dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_chat">
 
-        <TextView
-            android:id="@+id/sender"
+        <LinearLayout
+            android:id="@+id/fr_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:fontFamily="sans-serif"
-            android:textColor="@android:color/darker_gray"
-            android:visibility="gone"/>
+            android:background="@drawable/bg_message_outgoing"
+            android:padding="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
 
-        <TextView
-            android:id="@+id/message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:paddingTop="4dp"
-            android:paddingRight="8dp"
-            android:paddingBottom="4dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/timestamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:fontFamily="sans-serif"
-            android:gravity="end"/>
+                <TextView
+                    android:id="@+id/sender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@android:color/darker_gray"
+                    android:visibility="gone" />
 
-      </LinearLayout>
+                <TextView
+                    android:id="@+id/message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/timestamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:fontFamily="sans-serif"
+                    android:gravity="end" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
-
-  </LinearLayout>
 
 </LinearLayout>

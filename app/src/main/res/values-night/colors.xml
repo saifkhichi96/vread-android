@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-  <color name="colorDefaultInverse">@android:color/white</color>
-  <color name="colorDefault">@android:color/black</color>
-  <color name="colorDisabledInverse">#F8F8F8</color>
-  <color name="colorDisabled">#080808</color>
-
+    <color name="colorPrimary">#D3BBFF</color>
+    <color name="colorOnPrimary">#3D0091</color>
+    <color name="colorPrimaryContainer">#580FC0</color>
+    <color name="colorOnPrimaryContainer">#EBDCFF</color>
+    <color name="colorSecondary">#D1BCFF</color>
+    <color name="colorOnSecondary">#381E72</color>
+    <color name="colorSecondaryContainer">#4F378A</color>
+    <color name="colorOnSecondaryContainer">#EADDFF</color>
+    <color name="colorTertiary">#FFB0CB</color>
+    <color name="colorOnTertiary">#5D1134</color>
+    <color name="colorTertiaryContainer">#7A294B</color>
+    <color name="colorOnTertiaryContainer">#FFD8E4</color>
+    <color name="colorError">#FFB4A9</color>
+    <color name="colorErrorContainer">#930006</color>
+    <color name="colorOnError">#680003</color>
+    <color name="colorOnErrorContainer">#FFDAD4</color>
+    <color name="colorBackground">#1D1B1F</color>
+    <color name="colorOnBackground">#E6E1E5</color>
+    <color name="colorSurface">#1D1B1F</color>
+    <color name="colorOnSurface">#E6E1E5</color>
+    <color name="colorSurfaceVariant">#48454F</color>
+    <color name="colorOnSurfaceVariant">#C9C4CF</color>
+    <color name="colorOutline">#938F99</color>
+    <color name="colorInverseOnSurface">#1D1B1F</color>
+    <color name="colorInverseSurface">#E6E1E5</color>
+    <color name="colorPrimaryInverse">#7138D9</color>
 </resources>

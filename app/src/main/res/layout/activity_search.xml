@@ -1,70 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                     xmlns:tools="http://schemas.android.com/tools"
-                                                     android:layout_width="match_parent"
-                                                     android:layout_height="match_parent"
-                                                     android:background="@color/colorDisabled"
-                                                     tools:context="dev.aspirasoft.vread.core.ui.activity.SearchActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dev.aspirasoft.vread.core.ui.activity.SearchActivity">
 
-  <com.google.android.material.appbar.AppBarLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="top"
-      android:background="?attr/colorPrimaryDark"
-      android:theme="@style/AppTheme.AppBarOverlay">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
-
-      <androidx.appcompat.widget.Toolbar
-          android:id="@+id/toolbar"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-      <androidx.appcompat.widget.SearchView
-          android:id="@+id/searchView"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:layout_centerVertical="true"
-          android:layout_marginStart="?actionBarSize"
-          android:layout_marginLeft="?actionBarSize"
-          app:iconifiedByDefault="false"
-          app:queryHint="@string/hint_search"/>
-
-    </RelativeLayout>
-
-  </com.google.android.material.appbar.AppBarLayout>
-
-  <androidx.core.widget.NestedScrollView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_gravity="top"
+        android:background="?attr/colorPrimaryDark"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-      <!-- Search results displayed in this layout -->
-      <dev.aspirasoft.vread.core.ui.view.NestedListView
-          android:id="@+id/searchResults"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
 
-      <com.google.android.material.card.MaterialCardView
-          android:layout_width="8dp"
-          android:layout_height="8dp"
-          android:layout_margin="@dimen/activity_vertical_margin"
-          app:cardBackgroundColor="@color/colorNeutral"
-          app:cardCornerRadius="4dp"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    </LinearLayout>
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="?actionBarSize"
+                android:layout_marginLeft="?actionBarSize"
+                app:iconifiedByDefault="false"
+                app:queryHint="@string/hint_search" />
 
-  </androidx.core.widget.NestedScrollView>
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Search results displayed in this layout -->
+            <dev.aspirasoft.vread.core.ui.view.NestedListView
+                android:id="@+id/searchResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                app:cardCornerRadius="4dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

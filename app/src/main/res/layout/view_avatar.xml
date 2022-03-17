@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
-                                              android:id="@+id/user_photo"
-                                              android:layout_width="match_parent"
-                                              android:layout_height="match_parent"
-                                              android:scaleType="centerCrop"
-                                              android:src="@drawable/placeholder_avatar"/>
+    android:id="@+id/user_photo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="centerCrop"
+    android:src="@drawable/placeholder_avatar" />

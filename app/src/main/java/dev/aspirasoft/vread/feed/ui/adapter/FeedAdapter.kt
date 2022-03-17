@@ -143,7 +143,7 @@ class FeedAdapter(
     }
 
     private fun showLiked(likeButton: MaterialButton, liked: Boolean) {
-        val color = if (liked) R.color.colorCaution else R.color.colorDefaultInverse
+        val color = if (liked) R.color.colorError else R.color.colorOnPrimary // fixme: use attr colors
         likeButton.iconTint = ColorStateList.valueOf(ContextCompat.getColor(context, color))
         likeButton.setIconResource(if (liked) R.drawable.ic_like else R.drawable.ic_like_outline)
     }

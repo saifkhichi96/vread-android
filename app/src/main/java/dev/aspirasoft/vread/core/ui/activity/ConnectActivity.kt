@@ -12,8 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.aspirasoft.vread.R
-import dev.aspirasoft.vread.settings.data.AppearancePreferences
-import io.github.saifkhichi96.android.db.PrefsDatabase
 
 /**
  * @author saifkhichi96
@@ -24,10 +22,8 @@ import io.github.saifkhichi96.android.db.PrefsDatabase
 abstract class ConnectActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val appearance = AppearancePreferences(PrefsDatabase(this))
-        appearance.updateUiMode()
         super.onCreate(savedInstanceState)
-        appearance.updateTheme(this)
+        // TODO: Set app-wide theme settings here
     }
 
     override fun setContentView(layoutResID: Int) {

@@ -1,165 +1,153 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorDisabled"
-            android:orientation="vertical"
-            tools:context="dev.aspirasoft.vread.auth.ui.activity.SignUpActivity">
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:gravity="center"
-      android:orientation="vertical"
-      android:paddingStart="@dimen/activity_horizontal_margin"
-      android:paddingTop="@dimen/activity_vertical_margin"
-      android:paddingEnd="@dimen/activity_horizontal_margin"
-      android:paddingBottom="@dimen/activity_vertical_margin">
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_margin="16dp"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo"
-        android:tint="?attr/colorPrimaryDark"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="dev.aspirasoft.vread.auth.ui.activity.SignUpActivity">
 
     <LinearLayout
-        android:id="@+id/credentials"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
 
-      <!-- Name -->
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:baselineAligned="false"
-          android:orientation="horizontal"
-          android:weightSum="6">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"
+            android:tint="?attr/colorPrimaryDark" />
 
-        <!-- First Name -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/firstNameWrapper"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:hint="@string/hint_first_name"
-            android:textColorHint="@color/colorNeutral">
-
-          <com.google.android.material.textfield.TextInputEditText
-              android:id="@+id/firstName"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:inputType="textPersonName"
-              android:nextFocusDown="@id/lastName"
-              android:textColor="@color/colorDefaultInverse"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Last Name -->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:hint="@string/hint_last_name"
-            android:textColorHint="@color/colorNeutral">
-
-          <com.google.android.material.textfield.TextInputEditText
-              android:id="@+id/lastName"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:inputType="textPersonName"
-              android:textColor="@color/colorDefaultInverse"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-      </LinearLayout>
-
-      <!-- Username -->
-      <com.google.android.material.textfield.TextInputLayout
-          android:id="@+id/usernameWrapper"
-          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:hint="@string/hint_username"
-          android:textColorHint="@color/colorNeutral">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
+        <LinearLayout
+            android:id="@+id/credentials"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textColor="@color/colorDefaultInverse"/>
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:orientation="vertical">
 
-      </com.google.android.material.textfield.TextInputLayout>
+            <!-- Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="6">
 
-      <!-- Email -->
-      <com.google.android.material.textfield.TextInputLayout
-          android:id="@+id/emailWrapper"
-          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:hint="@string/hint_email"
-          android:textColorHint="@color/colorNeutral">
+                <!-- First Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/firstNameWrapper"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:hint="@string/hint_first_name">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/colorDefaultInverse"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/firstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:nextFocusDown="@id/lastName" />
 
-      </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-      <!-- Password -->
-      <com.google.android.material.textfield.TextInputLayout
-          android:id="@+id/passwordWrapper"
-          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:hint="@string/hint_password"
-          android:textColorHint="@color/colorNeutral"
-          app:passwordToggleEnabled="true"
-          app:passwordToggleTint="@color/colorNeutral">
+                <!-- Last Name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="@string/hint_last_name">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textVisiblePassword"
-            android:textColor="@color/colorDefaultInverse"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName" />
 
-      </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-      <androidx.appcompat.widget.AppCompatTextView
-          android:id="@+id/disclaimer"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/activity_vertical_margin"
-          android:layout_marginBottom="@dimen/activity_vertical_margin"
-          android:gravity="center"
-          android:linksClickable="true"
-          android:text="@string/disclaimer_signup"/>
+            </LinearLayout>
 
-      <!-- Sign Up -->
-      <com.google.android.material.button.MaterialButton
-          android:id="@+id/signUpButton"
-          style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/activity_vertical_margin"
-          android:text="@string/label_sign_up"
-          app:backgroundTint="?attr/colorPrimaryDark"/>
+            <!-- Username -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usernameWrapper"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_username">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Email -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailWrapper"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Password -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordWrapper"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_password"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textVisiblePassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/disclaimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:linksClickable="true"
+                android:text="@string/disclaimer_signup" />
+
+            <!-- Sign Up -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signUpButton"
+                style="@style/Widget.Material3.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/label_sign_up"
+                app:backgroundTint="?attr/colorPrimaryDark" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-  </LinearLayout>
 
 </ScrollView>

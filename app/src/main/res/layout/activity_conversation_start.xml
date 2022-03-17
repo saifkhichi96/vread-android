@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorDisabled">
+    android:layout_height="match_parent">
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:gravity="center_horizontal"
-      android:orientation="vertical">
-
-    <dev.aspirasoft.vread.core.ui.view.NestedListView
-        android:id="@+id/conversations"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        app:cardBackgroundColor="@color/colorNeutral"
-        app:cardCornerRadius="4dp"/>
+        <dev.aspirasoft.vread.core.ui.view.NestedListView
+            android:id="@+id/conversations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-  </LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            app:cardCornerRadius="4dp" />
+
+    </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

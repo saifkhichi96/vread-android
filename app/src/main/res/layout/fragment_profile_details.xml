@@ -28,7 +28,7 @@
 
       <androidx.appcompat.widget.AppCompatTextView
           android:id="@+id/bio"
-          style="@style/TextAppearance.MaterialComponents.Caption"
+          style="@style/TextAppearance.Material3.LabelMedium"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:drawablePadding="4dp"
@@ -54,7 +54,7 @@
 
       <androidx.appcompat.widget.AppCompatTextView
           android:id="@+id/location"
-          style="@style/TextAppearance.MaterialComponents.Caption"
+          style="@style/TextAppearance.Material3.LabelMedium"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:gravity="center"
@@ -81,7 +81,7 @@
 
       <androidx.appcompat.widget.AppCompatTextView
           android:id="@+id/birthday"
-          style="@style/TextAppearance.MaterialComponents.Caption"
+          style="@style/TextAppearance.Material3.LabelMedium"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:drawablePadding="4dp"
@@ -108,7 +108,7 @@
 
       <androidx.appcompat.widget.AppCompatTextView
           android:id="@+id/email"
-          style="@style/TextAppearance.MaterialComponents.Caption"
+          style="@style/TextAppearance.Material3.LabelMedium"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:drawablePadding="4dp"
@@ -135,7 +135,7 @@
 
       <androidx.appcompat.widget.AppCompatTextView
           android:id="@+id/website"
-          style="@style/TextAppearance.MaterialComponents.Caption"
+          style="@style/TextAppearance.Material3.LabelMedium"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:drawablePadding="4dp"
@@ -161,7 +161,7 @@
 
       <androidx.appcompat.widget.AppCompatTextView
           android:id="@+id/joining_date"
-          style="@style/TextAppearance.MaterialComponents.Caption"
+          style="@style/TextAppearance.Material3.LabelMedium"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:drawablePadding="4dp"

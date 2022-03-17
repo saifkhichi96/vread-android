@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDisabled"
     android:fitsSystemWindows="true"
     tools:context="dev.aspirasoft.vread.profile.ui.activity.EditProfileActivity">
 
@@ -78,7 +77,7 @@
 
           <androidx.appcompat.widget.AppCompatTextView
               android:id="@+id/name"
-              style="@style/TextAppearance.MaterialComponents.Headline6"
+              style="@style/TextAppearance.Material3.HeadlineSmall"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:maxLines="1"
@@ -88,7 +87,7 @@
 
           <TextView
               android:id="@+id/username"
-              style="@style/TextAppearance.MaterialComponents.Caption"
+              style="@style/TextAppearance.Material3.LabelMedium"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:maxLines="1"
@@ -129,7 +128,7 @@
 
       <!-- Bio -->
       <com.google.android.material.textfield.TextInputLayout
-          style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+          style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginBottom="16dp"
@@ -147,16 +146,14 @@
             android:gravity="top"
             android:hint="@string/hint_about"
             android:inputType="text"
-            android:maxLines="1"
-            android:textColor="@color/colorDefaultInverse"
-            android:textColorHint="@color/colorNeutral"/>
+            android:maxLines="1"/>
 
       </com.google.android.material.textfield.TextInputLayout>
 
 
       <!-- Phone -->
       <com.google.android.material.textfield.TextInputLayout
-          style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+          style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           app:boxCornerRadiusTopEnd="8dp"
@@ -172,19 +169,16 @@
             android:padding="6dp"
             android:drawableLeft="@drawable/ic_phone"
             android:drawableStart="@drawable/ic_phone"
-            android:drawableTint="@color/colorNeutral"
             android:drawablePadding="2dp"
             android:hint="@string/hint_phone"
             android:inputType="phone"
-            android:maxLines="1"
-            android:textColor="@color/colorDefaultInverse"
-            android:textColorHint="@color/colorNeutral"/>
+            android:maxLines="1"/>
 
       </com.google.android.material.textfield.TextInputLayout>
 
       <!-- Email -->
       <com.google.android.material.textfield.TextInputLayout
-          style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+          style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           app:boxCornerRadiusTopEnd="0dp"
@@ -203,16 +197,13 @@
             android:padding="6dp"
             android:drawableLeft="@drawable/ic_email"
             android:drawableStart="@drawable/ic_email"
-            android:drawableTint="@color/colorNeutral"
-            android:drawablePadding="2dp"
-            android:textColor="@color/colorDefaultInverse"
-            android:textColorHint="@color/colorNeutral"/>
+            android:drawablePadding="2dp"/>
 
       </com.google.android.material.textfield.TextInputLayout>
 
       <!-- Website -->
       <com.google.android.material.textfield.TextInputLayout
-          style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+          style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           app:boxCornerRadiusTopEnd="0dp"
@@ -228,18 +219,15 @@
             android:padding="6dp"
             android:drawableLeft="@drawable/ic_website"
             android:drawableStart="@drawable/ic_website"
-            android:drawableTint="@color/colorNeutral"
             android:drawablePadding="2dp"
             android:hint="@string/hint_website"
-            android:inputType="textUri"
-            android:textColor="@color/colorDefaultInverse"
-            android:textColorHint="@color/colorNeutral"/>
+            android:inputType="textUri"/>
 
       </com.google.android.material.textfield.TextInputLayout>
 
       <!-- Location -->
       <com.google.android.material.textfield.TextInputLayout
-          style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+          style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           app:boxCornerRadiusTopEnd="0dp"
@@ -255,13 +243,10 @@
             android:padding="6dp"
             android:drawableLeft="@drawable/ic_location"
             android:drawableStart="@drawable/ic_location"
-            android:drawableTint="@color/colorNeutral"
             android:drawablePadding="2dp"
             android:hint="Location"
             android:inputType="textPostalAddress"
-            android:maxLines="1"
-            android:textColor="@color/colorDefaultInverse"
-            android:textColorHint="@color/colorNeutral"/>
+            android:maxLines="1"/>
 
       </com.google.android.material.textfield.TextInputLayout>
 
@@ -271,7 +256,6 @@
           android:layout_marginTop="@dimen/activity_vertical_margin"
           android:gravity="center"
           android:text="@string/disclaimer"
-          android:textColor="@color/colorDisabledInverse"
           android:textSize="12sp"/>
 
     </LinearLayout>

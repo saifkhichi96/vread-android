@@ -13,8 +13,8 @@
         app:elevation="0dp">
 
         <com.google.android.material.appbar.MaterialToolbar
-            style="@style/App.Widget.Toolbar"
             android:id="@+id/toolbar"
+            style="@style/App.Widget.Toolbar"
             android:layout_width="256dp"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll" />
@@ -243,8 +243,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:src="@drawable/gbs_preview_button"
                             android:background="@android:color/transparent"
+                            android:src="@drawable/gbs_preview_button"
                             android:visibility="gone" />
 
                     </LinearLayout>

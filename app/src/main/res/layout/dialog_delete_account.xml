@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/colorDefault"
     app:contentPadding="16dp">
 
   <LinearLayout
@@ -14,31 +13,28 @@
       android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.Material3.HeadlineSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
         android:gravity="center"
-        android:text="Confirm Account Deletion"
-        android:textColor="@color/colorDefaultInverse"/>
+        android:text="Confirm Account Deletion"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextAppearance.MaterialComponents.Body2"
+        style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
-        android:text="Understand that this action is final and cannot be restored. Proceed with caution."
-        android:textColor="@color/colorDefaultInverse"/>
+        android:text="Understand that this action is final and cannot be restored. Proceed with caution."/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordWrapper"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Re-Enter Password"
-        android:textColorHint="@color/colorDisabledInverse">
+        android:hint="Re-Enter Password">
 
       <com.google.android.material.textfield.TextInputEditText
           android:id="@+id/passwordField"
@@ -46,20 +42,18 @@
           android:layout_height="wrap_content"
           android:gravity="start|center_vertical"
           android:orientation="vertical"
-          android:textAllCaps="false"
-          android:textColor="@color/colorDefaultInverse"/>
+          android:textAllCaps="false"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextAppearance.MaterialComponents.Body2"
+        style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="By entering your password, you confirm that you want your account closed all your data to be erased from our servers."
-        android:textColor="@color/colorDefaultInverse"/>
+        android:text="By entering your password, you confirm that you want your account closed all your data to be erased from our servers." />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -69,16 +63,15 @@
 
       <com.google.android.material.button.MaterialButton
           android:id="@+id/cancel_button"
-          style="@style/Widget.MaterialComponents.Button.TextButton"
+          style="@style/Widget.Material3.Button.TextButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_gravity="end"
-          android:text="Cancel"
-          android:textColor="@color/colorDefaultInverse"/>
+          android:text="Cancel"/>
 
       <com.google.android.material.button.MaterialButton
           android:id="@+id/submit_button"
-          style="@style/Widget.MaterialComponents.Button.TextButton"
+          style="@style/Widget.Material3.Button.TextButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_gravity="end"
@@ -99,13 +92,12 @@
 
   <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/confirmation"
-      style="@style/TextAppearance.MaterialComponents.Headline6"
+      style="@style/TextAppearance.Material3.HeadlineSmall"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:layout_margin="16dp"
       android:gravity="center"
       android:text="Account successfully deleted."
-      android:textColor="@color/colorDefaultInverse"
       android:visibility="gone"/>
 
 </com.google.android.material.card.MaterialCardView>

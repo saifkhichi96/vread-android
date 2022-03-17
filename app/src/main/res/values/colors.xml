@@ -1,40 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <!-- Default -->
-  <color name="color">#8200e8</color>
-  <color name="colorDark">#4A148C</color>
-  <color name="colorAccent">#FF4081</color>
-
-  <!-- Twitter -->
-  <color name="colorRavenclaw">#222f5b</color>
-  <color name="colorRavenclawDark">#0e1a40</color>
-  <color name="colorRavenclawAccent">#5d5d5d</color>
-
-  <!-- Reddit -->
-  <color name="colorHufflepuff">#eeba30</color>
-  <color name="colorHufflepuffDark">#c28b00</color>
-  <color name="colorHufflepuffAccent">#726255</color>
-
-  <!-- Instagram -->
-  <color name="colorGryffindor">#ae0001</color>
-  <color name="colorGryffindorDark">#740001</color>
-  <color name="colorGryffindorAccent">#eeba30</color>
-
-  <!-- WhatsApp -->
-  <color name="colorSlytherin">#2a623d</color>
-  <color name="colorSlytherinDark">#1a472a</color>
-  <color name="colorSlytherinAccent">#5d5d5d</color>
-
-  <!-- Night -->
-  <color name="night">#636363</color>
-  <color name="nightDark">#424242</color>
-
-  <!-- Some common colors -->
-  <color name="colorCaution">#B71C1C</color>
-  <color name="colorDefault">@android:color/white</color>
-  <color name="colorDefaultInverse">@android:color/black</color>
-  <color name="colorNeutral">@android:color/darker_gray</color>
-  <color name="colorDisabled">#F8F8F8</color>
-  <color name="colorDisabledInverse">#080808</color>
-
+    <color name="colorPrimary">#7138D9</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorPrimaryContainer">#EBDCFF</color>
+    <color name="colorOnPrimaryContainer">#23005B</color>
+    <color name="colorSecondary">#6850A4</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorSecondaryContainer">#EADDFF</color>
+    <color name="colorOnSecondaryContainer">#23005D</color>
+    <color name="colorTertiary">#984163</color>
+    <color name="colorOnTertiary">#FFFFFF</color>
+    <color name="colorTertiaryContainer">#FFD8E4</color>
+    <color name="colorOnTertiaryContainer">#3E001D</color>
+    <color name="colorError">#BA1B1B</color>
+    <color name="colorErrorContainer">#FFDAD4</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorOnErrorContainer">#410001</color>
+    <color name="colorBackground">#FFFBFD</color>
+    <color name="colorOnBackground">#1D1B1F</color>
+    <color name="colorSurface">#FFFBFD</color>
+    <color name="colorOnSurface">#1D1B1F</color>
+    <color name="colorSurfaceVariant">#E6E0EC</color>
+    <color name="colorOnSurfaceVariant">#48454F</color>
+    <color name="colorOutline">#79767F</color>
+    <color name="colorInverseOnSurface">#F4EFF4</color>
+    <color name="colorInverseSurface">#323033</color>
+    <color name="colorPrimaryInverse">#D3BBFF</color>
 </resources>

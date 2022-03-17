@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDisabled"
     android:fitsSystemWindows="true"
     tools:context="dev.aspirasoft.vread.profile.ui.activity.ProfileActivity">
 
@@ -138,29 +137,26 @@
       app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="80dp"
         android:layout_height="88dp"
         android:padding="16dp"
         app:cornerRadius="40dp"
         app:icon="@drawable/ic_lock"
         app:iconSize="48dp"
-        app:iconTint="@color/colorNeutral"
-        app:strokeColor="@color/colorNeutral"
         app:strokeWidth="1dp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextAppearance.MaterialComponents.Headline6"
+        style="@style/TextAppearance.Material3.HeadlineSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:gravity="center"
-        android:text="This account is private.\nFollow to view their posts."
-        android:textColor="@color/colorNeutral"/>
+        android:text="This account is private.\nFollow to view their posts."/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/action_follow"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        style="@style/Widget.Material3.Button.UnelevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/action_follow"/>

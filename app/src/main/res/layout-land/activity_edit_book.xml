@@ -13,12 +13,12 @@
         app:elevation="0dp">
 
         <com.google.android.material.appbar.MaterialToolbar
-            style="@style/App.Widget.Toolbar"
             android:id="@+id/toolbar"
+            style="@style/App.Widget.Toolbar"
             android:layout_width="256dp"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll"
-            app:title="@string/title_activity_edit_book"/>
+            app:title="@string/title_activity_edit_book" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -215,8 +215,8 @@
                                         android:id="@+id/book_pages"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:inputType="numberDecimal"
                                         android:gravity="center"
+                                        android:inputType="numberDecimal"
                                         android:maxLines="1"
                                         android:textAppearance="@style/TextAppearance.Material3.BodyMedium">
 
@@ -259,8 +259,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="-16dp"
                                         android:layout_marginEnd="-16dp"
-                                        android:inputType="none"
                                         android:gravity="center"
+                                        android:inputType="none"
                                         android:textAppearance="@style/TextAppearance.Material3.BodyMedium">
 
                                     </com.google.android.material.textfield.MaterialAutoCompleteTextView>
@@ -302,8 +302,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="-16dp"
                                         android:layout_marginEnd="-16dp"
-                                        android:inputType="none"
                                         android:gravity="center"
+                                        android:inputType="none"
                                         android:maxLines="1"
                                         android:textAppearance="@style/TextAppearance.Material3.BodyMedium">
 
@@ -333,9 +333,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="-16dp"
                             android:layout_marginEnd="-16dp"
-                            android:inputType="text"
                             android:gravity="start"
                             android:hint="@string/hint_book_authors"
+                            android:inputType="text"
                             android:padding="0dp"
                             android:textAppearance="@style/TextAppearance.Material3.LabelSmall">
 
@@ -347,8 +347,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_gravity="start"
+                        android:layout_marginTop="16dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -426,12 +426,12 @@
                             android:id="@+id/book_isbn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
+                            android:fontFamily="serif-monospace"
                             android:gravity="center"
                             android:hint="@string/hint_book_isbn"
+                            android:inputType="numberDecimal"
                             android:padding="0dp"
-                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-                            android:fontFamily="serif-monospace">
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge">
 
                         </com.google.android.material.textfield.TextInputEditText>
 
@@ -481,15 +481,15 @@
                     android:id="@+id/book_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
                     android:layout_marginStart="-16dp"
                     android:layout_marginEnd="-16dp"
                     android:gravity="center"
                     android:hint="@string/hint_book_title"
+                    android:inputType="textMultiLine"
                     android:padding="0dp"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
                     android:textColor="?attr/colorPrimary"
-                    android:textColorHint="?attr/colorPrimary"
-                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall">
+                    android:textColorHint="?attr/colorPrimary">
 
                 </com.google.android.material.textfield.TextInputEditText>
 

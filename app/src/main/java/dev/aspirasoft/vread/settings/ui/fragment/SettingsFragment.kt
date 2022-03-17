@@ -18,7 +18,6 @@ import dev.aspirasoft.vread.auth.util.AccountManager
 import dev.aspirasoft.vread.auth.util.SessionManager
 import dev.aspirasoft.vread.databinding.FragmentSettingsBinding
 import dev.aspirasoft.vread.profile.ui.activity.ProfileActivity
-import dev.aspirasoft.vread.settings.data.AppearancePreferences
 import dev.aspirasoft.vread.settings.ui.activity.HelpActivity
 import kotlinx.android.synthetic.main.dialog_delete_account.*
 import kotlinx.coroutines.launch
@@ -28,9 +27,6 @@ import javax.inject.Inject
 class SettingsFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentSettingsBinding
-
-    @Inject
-    lateinit var appearance: AppearancePreferences
 
     @Inject
     lateinit var repo: AccountManager
@@ -67,14 +63,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
         binding.actionChangePassword.setOnClickListener(this)
         binding.actionDeleteAccount.setOnClickListener(this)
         binding.actionGetHelp.setOnClickListener(this)
-        binding.defaultTheme.setOnClickListener(this)
-        binding.ravenclawTheme.setOnClickListener(this)
-        binding.gryffindorTheme.setOnClickListener(this)
-        binding.slytherinTheme.setOnClickListener(this)
-        binding.hufflepuffTheme.setOnClickListener(this)
         binding.appVersion.setOnClickListener(this)
-        binding.nightMode.isChecked = appearance.uiMode == "Night"
-        binding.nightMode.setOnCheckedChangeListener { _, isChecked -> setDarkModeEnabled(isChecked) }
     }
 
     override fun onClick(v: View) {
@@ -123,26 +112,11 @@ class SettingsFragment : Fragment(), View.OnClickListener {
                 }
             }.show()
             R.id.action_get_help -> startActivity(Intent(requireContext(), HelpActivity::class.java))
-            R.id.defaultTheme -> changeTheme(AppearancePreferences.THEME_DEFAULT)
-            R.id.slytherinTheme -> changeTheme(AppearancePreferences.THEME_SALAZAR)
-            R.id.gryffindorTheme -> changeTheme(AppearancePreferences.THEME_GODRIC)
-            R.id.hufflepuffTheme -> changeTheme(AppearancePreferences.THEME_HELGA)
-            R.id.ravenclawTheme -> changeTheme(AppearancePreferences.THEME_ROWENA)
             R.id.signout -> {
                 auth.finish()
                 requireActivity().finish()
             }
         }
-    }
-
-    private fun setDarkModeEnabled(enabled: Boolean) {
-        appearance.uiMode = if (enabled) AppearancePreferences.MODE_DARK else AppearancePreferences.MODE_LIGHT
-        requireActivity().recreate()
-    }
-
-    private fun changeTheme(theme: String?) {
-        appearance.theme = theme!!
-        requireActivity().recreate()
     }
 
     companion object {
