@@ -25,6 +25,9 @@
         <entry key="app/src/main/res/menu/menu_books_list.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/menu_edit_book.xml" value="0.2828125" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.146875" />
+        <entry key="app/src/main/res/mipmap-anydpi/ic_launcher.xml" value="0.146875" />
+        <entry key="app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" value="0.146875" />
         <entry key="books/src/main/res/drawable-anydpi/ic_action_edit.xml" value="0.28" />
         <entry key="books/src/main/res/drawable-anydpi/ic_action_save.xml" value="0.28" />
       </map>

@@ -26,10 +26,10 @@
         <item name="colorOutline">@color/colorOutline</item>
         <item name="colorOnSurfaceInverse">@color/colorInverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/colorInverseSurface</item>
-        <item name="colorPrimaryInverse">@color/colorPrimaryInverse</item>
-        <item name="android:statusBarColor">?attr/colorTertiaryContainer</item>
-        <item name="android:navigationBarColor">?attr/colorTertiaryContainer</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimaryInverse">@color/colorInversePrimary</item>
+        <item name="android:statusBarColor">?attr/colorTertiary</item>
+        <item name="android:navigationBarColor">?attr/colorTertiary</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
@@ -47,10 +47,10 @@
     </style>
 
     <style name="App.Widget.Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="android:background">?attr/colorTertiaryContainer</item>
-        <item name="titleTextColor">?attr/colorOnTertiaryContainer</item>
-        <item name="subtitleTextColor">?attr/colorOnTertiaryContainer</item>
-        <item name="navigationIconTint">?attr/colorOnTertiaryContainer</item>
+        <item name="android:background">?attr/colorTertiary</item>
+        <item name="titleTextColor">?attr/colorOnTertiary</item>
+        <item name="subtitleTextColor">?attr/colorOnTertiary</item>
+        <item name="navigationIconTint">?attr/colorOnTertiary</item>
     </style>
 
     <style name="App.Widget.MenuItem" parent="Widget.Material3.Button.UnelevatedButton">
