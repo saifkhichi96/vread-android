@@ -1,4 +1,4 @@
-package dev.aspirasoft.vread.feed
+package dev.aspirasoft.vread.feed.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -48,6 +48,7 @@ class FeedFragment : Fragment() {
             refreshFeed()
 
             composeView = v.findViewById(R.id.compose_view)
+            composeView?.setActivity(requireActivity())
             composeView?.onNewPostListener = { postContent, attachment ->
                 lifecycleScope.launch {
                     val status = Snackbar.make(

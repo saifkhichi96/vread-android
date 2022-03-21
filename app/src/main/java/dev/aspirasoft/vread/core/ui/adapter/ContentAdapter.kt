@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import dev.aspirasoft.vread.books.ui.fragment.LibraryFragment
 import dev.aspirasoft.vread.chat.ui.fragment.ConversationsFragment
-import dev.aspirasoft.vread.feed.FeedFragment
+import dev.aspirasoft.vread.feed.ui.fragment.FeedFragment
 import dev.aspirasoft.vread.settings.ui.fragment.SettingsFragment
 
 class ContentAdapter(fm: FragmentManager, private val uid: String) : FragmentPagerAdapter(fm) {

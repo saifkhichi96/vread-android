@@ -21,7 +21,8 @@ import dev.aspirasoft.vread.profile.ui.view.AvatarView
 
 class ComposeView : RelativeLayout {
 
-    private lateinit var mAvatarView: AvatarView
+    private lateinit var activity : Activity
+
     private lateinit var mComposeText: TextInputEditText
     private lateinit var mSubmitButton: MaterialButton
     private lateinit var mAttachmentButton: MaterialButton
@@ -61,13 +62,16 @@ class ComposeView : RelativeLayout {
 
         mAttachmentButton = findViewById(R.id.attachment_button)
         mAttachmentButton.setOnClickListener {
-            if (context is Activity) onAttachmentButtonClicked(context)
+            if (::activity.isInitialized) {
+                onAttachmentButtonClicked(activity)
+            }
         }
 
-        mAvatarView = findViewById(R.id.avatar)
-        Firebase.auth.currentUser?.uid?.let { mAvatarView.showUser(it) }
-
         setComposingEnabled(true)
+    }
+
+    fun setActivity(activity: Activity) {
+        this.activity = activity
     }
 
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

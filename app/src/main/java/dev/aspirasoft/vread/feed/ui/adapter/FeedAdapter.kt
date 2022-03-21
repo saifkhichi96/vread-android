@@ -2,28 +2,20 @@ package dev.aspirasoft.vread.feed.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.ColorStateList
-import android.net.Uri
 import android.view.*
 import android.view.GestureDetector.SimpleOnGestureListener
-import android.view.View.*
+import android.view.View.OnTouchListener
 import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.VideoView
-import androidx.core.content.ContextCompat
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import dev.aspirasoft.vread.R
+import dev.aspirasoft.vread.databinding.ViewFeedPostBinding
 import dev.aspirasoft.vread.feed.model.Post
 import dev.aspirasoft.vread.feed.model.PostLike
-import dev.aspirasoft.vread.profile.ui.view.AvatarView
+import dev.aspirasoft.vread.feed.ui.holder.FeedPostHolder
 
 
 class FeedAdapter(
@@ -40,16 +32,12 @@ class FeedAdapter(
         super.notifyDataSetChanged()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val v: View = LayoutInflater.from(context).inflate(R.layout.view_feed_post, parent, false)
+        val binding = ViewFeedPostBinding.inflate(LayoutInflater.from(context), parent, false)
 
-        showPostAuthor(v, position)
-
-        val likeButton: MaterialButton = v.findViewById(R.id.iv_like)
-        val postImage: ImageView = v.findViewById(R.id.iv_feed)
-        val likesCountLabel: TextView = v.findViewById(R.id.tv_likes)
-        val postCaption: TextView = v.findViewById(R.id.txt_descc)
-        val postVideo: VideoView = v.findViewById(R.id.vdd_feed)
+        val holder = FeedPostHolder(binding)
+        showPostAuthor(holder, position)
 
         val currentPost = posts[position]
 
@@ -58,8 +46,7 @@ class FeedAdapter(
             .equalTo(currentPost.id)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    val likeCount = snapshot.childrenCount.toInt()
-                    likesCountLabel.text = "$likeCount" + if (likeCount == 1) " Like" else "  Likes"
+                    holder.showLikeCount(snapshot.childrenCount.toInt())
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -79,7 +66,7 @@ class FeedAdapter(
                             return@forEach
                         }
                     }
-                    showLiked(likeButton, liked)
+                    holder.showLiked(liked)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -87,84 +74,51 @@ class FeedAdapter(
                 }
             })
 
-        // Show post description
-        postCaption.text = currentPost.content
+        binding.postBody.text = currentPost.content
 
-        // Show attachment
-        val attachmentUrl = currentPost.attachment
-        if (attachmentUrl != null) {
-            showAttachment(attachmentUrl, postImage, postVideo)
+        // Show timestamp formatted as "X minutes/hours/days ago"
+        val timestamp = currentPost.timestamp
+        val minutes = (System.currentTimeMillis() - timestamp) / 60000
+        val hours = minutes / 60
+        val days = hours / 24
+        val weeks = days / 7
+        val months = days / 30
+        val years = days / 365
+        val time = when {
+            years > 0 -> "$years years ago"
+            months > 0 -> "$months months ago"
+            weeks > 0 -> "$weeks weeks ago"
+            days > 0 -> "$days days ago"
+            hours > 0 -> "$hours hours ago"
+            minutes > 0 -> "$minutes minutes ago"
+            else -> "Just now"
+        }
+        binding.postTimestamp.text = time
+        when (val url = currentPost.attachment) {
+            null -> holder.hideAttachmentFrame()
+            else -> holder.showAttachment(url)
         }
 
-        likeButton.setOnClickListener { onLikeClicked(position, likeButton) }
+        binding.postLikeButton.setOnClickListener { onLikeClicked(holder, position) }
 
-        val doubleTapListener = DoubleTapListener(position, likeButton)
-        postImage.setOnTouchListener(doubleTapListener)
-        postVideo.setOnTouchListener(doubleTapListener)
-        return v
+        val doubleTapListener = DoubleTapListener(holder, position)
+        binding.postMediaImage.setOnTouchListener(doubleTapListener)
+        binding.postMediaVideo.setOnTouchListener(doubleTapListener)
+
+        return binding.root
     }
 
-    private fun showAttachment(attachmentUrl: String, imageView: ImageView, videoView: VideoView) {
-        val filename = attachmentUrl.substringBeforeLast("?")
-        val filetype = filename.substringAfterLast(".").lowercase()
-
-        val supportedImages = arrayOf("jpg", "jpeg", "png", "webp", "bmp", "tif", "tiff", "svg")
-        val supportedVideos = arrayOf("mp4", "3gp", "gif", "avi", "mov", "mkv", "webm")
-        when (filetype) {
-            in supportedImages -> {
-                imageView.visibility = VISIBLE
-                videoView.visibility = GONE
-
-                Glide.with(context)
-                    .load(attachmentUrl)
-                    .into(imageView)
-            }
-            in supportedVideos -> {
-                videoView.stopPlayback()
-                videoView.resume()
-
-                Glide.with(context)
-                    .load(attachmentUrl)
-                    .dontAnimate()
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .thumbnail(0.5f)
-                    .centerInside()
-                    .into(imageView)
-
-                videoView.visibility = VISIBLE
-                videoView.setVideoURI(Uri.parse(attachmentUrl))
-                videoView.setOnPreparedListener {
-                    imageView.visibility = GONE
-                    videoView.start()
-                    it.isLooping = true
-                }
-            }
-        }
-    }
-
-    private fun showLiked(likeButton: MaterialButton, liked: Boolean) {
-        val color = if (liked) R.color.colorError else R.color.colorOnPrimary // fixme: use attr colors
-        likeButton.iconTint = ColorStateList.valueOf(ContextCompat.getColor(context, color))
-        likeButton.setIconResource(if (liked) R.drawable.ic_like else R.drawable.ic_like_outline)
-    }
-
-    private fun showPostAuthor(v: View, position: Int) {
+    private fun showPostAuthor(v: FeedPostHolder, position: Int) {
         val authorId = posts[position].postedBy
-
-        // Show author photo
-        val postAuthorPhoto = v.findViewById<AvatarView>(R.id.post_author_photo)
-        postAuthorPhoto.showUser(authorId)
-
-        // FIXME: Show author name
-        val authorName: TextView = v.findViewById(R.id.post_author_name)
-        val authorType: TextView = v.findViewById(R.id.post_author_type)
+        v.postAuthorImage.showUser(authorId)
+        v.postAuthorName.text = authorId  // fixme: show author name instead of id
         //UsersDao.getUserById(schoolId, authorId) { user: User ->
         //    authorName.text = user.firstName
         //    authorType.text = user.username
         //}
     }
 
-    private fun onLikeClicked(position: Int, likeButton: MaterialButton) {
+    private fun onLikeClicked(holder: FeedPostHolder, position: Int) {
         val currentPost = posts[position]
         likesRef.orderByChild(PostLike::postId.name)
             .equalTo(currentPost.id)
@@ -179,12 +133,10 @@ class FeedAdapter(
                     if (liked.size <= 0) {
                         val like = PostLike(currentUserId, currentPost.id)
                         likesRef.push().setValue(like)
-                        showLiked(likeButton, true)
+                        holder.showLiked(true)
                     } else {
-                        liked.forEach {
-                            likesRef.child(it.key!!).removeValue()
-                        }
-                        showLiked(likeButton, false)
+                        liked.forEach { likesRef.child(it.key!!).removeValue() }
+                        holder.showLiked(false)
                     }
                 }
 
@@ -195,13 +147,13 @@ class FeedAdapter(
     }
 
     private inner class DoubleTapListener(
+        private val holder: FeedPostHolder,
         position: Int,
-        private val likeButton: MaterialButton,
     ) : OnTouchListener {
 
         private val gestureDetector = GestureDetector(context, object : SimpleOnGestureListener() {
             override fun onDoubleTap(e: MotionEvent): Boolean {
-                onLikeClicked(position, likeButton)
+                onLikeClicked(holder, position)
                 return super.onDoubleTap(e)
             }
 
