@@ -19,7 +19,6 @@ import kotlinx.coroutines.launch
 class HomeActivity : SecureActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var searchView: SearchView
 
     private lateinit var mTokenReceiver: TokenReceiver
 
@@ -34,38 +33,18 @@ class HomeActivity : SecureActivity() {
         // Set up action bar
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
-
-        // Set up search
-        searchView = binding.searchView
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(text: String?): Boolean {
-                onSearchRequested()
-                return true
-            }
-
-            override fun onQueryTextChange(text: String?): Boolean {
-                return false
-            }
-        })
     }
 
-    override fun onSearchRequested(): Boolean {
-        val query = try {
-            searchView.query!!.toString().trim { it <= ' ' }
+    private fun onSearchRequested(query: String): Boolean {
+        val q = query.trim { it <= ' ' }
                 .replace("\n", "")
                 .replace("\t", "")
                 .replace("[ ]+".toRegex(), " ")
-        } catch (ex: Exception) {
-            ""
-        }
 
-        if (query.isNotBlank()) {
-            searchView.setQuery("", false)
-            searchView.clearFocus()
-
+        if (q.isNotBlank()) {
             val i = Intent(this, SearchActivity::class.java)
             i.action = Intent.ACTION_SEARCH
-            i.putExtra(SearchManager.QUERY, query)
+            i.putExtra(SearchManager.QUERY, q)
             startActivity(i)
             return true
         }
@@ -92,8 +71,6 @@ class HomeActivity : SecureActivity() {
             binding.profileContent.currentItem = savedContentPosition
         }
 
-        searchView.clearFocus()
-
         if (::mTokenReceiver.isInitialized) mTokenReceiver.register(this)
     }
 
@@ -109,8 +86,21 @@ class HomeActivity : SecureActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
+
+        // Associate searchable configuration with the SearchView
+        (menu.findItem(R.id.action_search).actionView as SearchView).apply {
+            this.queryHint = getString(R.string.hint_search)
+            this.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    return onSearchRequested(query.trim())
+                }
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    return if (newText.isEmpty()) onSearchRequested("") else false
+                }
+            })
+        }
         return true
     }
 

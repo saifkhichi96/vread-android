@@ -9,32 +9,12 @@
       android:layout_height="wrap_content"
       android:layout_gravity="top">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
-
       <com.google.android.material.appbar.MaterialToolbar
           style="@style/App.Widget.Toolbar"
           android:id="@+id/toolbar"
           android:layout_width="match_parent"
-          android:layout_height="match_parent"/>
-
-      <androidx.appcompat.widget.SearchView
-          android:id="@+id/searchView"
-          android:layout_width="match_parent"
-          android:layout_height="32dp"
-          android:layout_centerVertical="true"
-          android:layout_marginStart="?actionBarSize"
-          android:layout_marginLeft="?actionBarSize"
-          android:layout_marginEnd="?actionBarSize"
-          android:layout_marginRight="?actionBarSize"
-          android:focusable="false"
-          android:focusableInTouchMode="true"
-          android:theme="@style/AppTheme.AppBarOverlay"
-          app:iconifiedByDefault="false"
-          app:queryHint="@string/hint_search"/>
-
-    </RelativeLayout>
+          android:layout_height="wrap_content"
+          app:layout_scrollFlags="noScroll" />
 
   </com.google.android.material.appbar.AppBarLayout>
 

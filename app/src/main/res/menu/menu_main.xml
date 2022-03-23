@@ -5,6 +5,13 @@
       android:layout_height="wrap_content">
 
   <item
+      android:id="@+id/action_search"
+      android:icon="@drawable/ic_action_search"
+      android:title="@string/action_search"
+      app:actionViewClass="androidx.appcompat.widget.SearchView"
+      app:showAsAction="collapseActionView|ifRoom" />
+
+  <item
       android:id="@+id/action_notifications"
       android:icon="@drawable/ic_nav_notifications"
       android:title="@string/action_notifications"
