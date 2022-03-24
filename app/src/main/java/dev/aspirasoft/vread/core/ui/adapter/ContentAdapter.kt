@@ -17,20 +17,6 @@ class ContentAdapter(fm: FragmentManager, private val uid: String) : FragmentPag
         fragments.forEach { it.onActivityResult(requestCode, resultCode, data) }
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return try {
-            when (position) {
-                0 -> "Home"
-                1 -> "Friends"
-                2 -> "Forums"
-                3 -> "Settings"
-                else -> throw IllegalArgumentException()
-            }
-        } catch (ex: Exception) {
-            "Home"
-        }
-    }
-
     override fun getItem(position: Int): Fragment {
         return try {
             when (position) {

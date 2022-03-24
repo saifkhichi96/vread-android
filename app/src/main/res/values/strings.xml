@@ -128,6 +128,12 @@
     <string name="title_activity_edit_book">Edit Book</string>
     <string name="title_activity_add_book">Add Book</string>
 
+    <!-- Fragment titles -->
+    <string name="title_fragment_home">Home</string>
+    <string name="title_fragment_library">My Library</string>
+    <string name="title_fragment_shelves">Bookshelves</string>
+    <string name="title_fragment_settings">Settings</string>
+
     <!-- Formatting strings -->
     <string name="book_isbn">ISBN: %s</string>
     <string name="book_category"><![CDATA[%s > %s]]></string>

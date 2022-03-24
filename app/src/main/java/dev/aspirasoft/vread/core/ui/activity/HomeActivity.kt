@@ -32,7 +32,6 @@ class HomeActivity : SecureActivity() {
 
         // Set up action bar
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = ""
     }
 
     private fun onSearchRequested(query: String): Boolean {
@@ -121,22 +120,27 @@ class HomeActivity : SecureActivity() {
     private fun createContent(uid: String) {
         contentAdapter = ContentAdapter(supportFragmentManager, uid)
         binding.profileContent.adapter = contentAdapter
-        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+        supportActionBar?.title = getString(R.string.title_fragment_home)
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.menu_home -> {
+                R.id.nav_home -> {
                     binding.profileContent.currentItem = 0
+                    supportActionBar?.title = getString(R.string.title_fragment_home)
                     true
                 }
-                R.id.menu_reading -> {
+                R.id.nav_library -> {
                     binding.profileContent.currentItem = 1
+                    supportActionBar?.title = getString(R.string.title_fragment_library)
                     true
                 }
-                R.id.menu_favorites -> {
+                R.id.nav_shelves -> {
                     binding.profileContent.currentItem = 2
+                    supportActionBar?.title = getString(R.string.title_fragment_shelves)
                     true
                 }
-                R.id.menu_profile -> {
+                R.id.nav_settings -> {
                     binding.profileContent.currentItem = 3
+                    supportActionBar?.title = getString(R.string.title_fragment_settings)
                     true
                 }
                 else -> false
