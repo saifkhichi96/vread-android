@@ -22,6 +22,7 @@ import dev.aspirasoft.vread.books.model.Book
 import dev.aspirasoft.vread.books.model.Book.Companion.toByteArray
 import dev.aspirasoft.vread.books.model.Format
 import dev.aspirasoft.vread.books.ui.activity.BookDetailsActivity.Companion.EXTRA_BOOK
+import dev.aspirasoft.vread.books.util.BarcodeScanner
 import dev.aspirasoft.vread.databinding.ActivityEditBookBinding
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -40,6 +41,8 @@ class EditBookActivity : AppCompatActivity() {
     lateinit var repo: BooksRepository
 
     private var selectedBookCover: Uri? = null
+
+    private lateinit var scanner: BarcodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +66,9 @@ class EditBookActivity : AppCompatActivity() {
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             supportActionBar?.title = ""
         }
+
+        // Create the barcode scanner
+        scanner = BarcodeScanner(this) { it?.contents?.let(::onBarcodeScanned) }
 
         updateUI()
 
@@ -132,17 +138,7 @@ class EditBookActivity : AppCompatActivity() {
                 true
             }
             R.id.action_scan -> {
-                val isbn13 = binding.bookIsbn.text?.toString() ?: ""
-                if (isbn13.length == 13) {
-                    Thread {
-                        GoogleBooksAPI.findByISBN(isbn13).firstOrNull()?.let {
-                            runOnUiThread {
-                                book.updateWith(it)
-                                updateUI()
-                            }
-                        }
-                    }.start()
-                }
+                scanner.start()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -200,6 +196,16 @@ class EditBookActivity : AppCompatActivity() {
 
         book.getBookCover(this@EditBookActivity, binding.bookCover, true)
     }
+
+    private fun onBarcodeScanned(barcode: String) = Thread {
+        runOnUiThread { binding.bookIsbn.setText(barcode) }
+        GoogleBooksAPI.findByISBN(barcode).firstOrNull()?.let {
+            runOnUiThread {
+                book.updateWith(it)
+                updateUI()
+            }
+        }
+    }.start()
 
     private fun updateUI() {
         book.getBookCover(this, binding.bookCover)
