@@ -10,8 +10,10 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_action_edit2.xml" value="0.146875" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_save.xml" value="0.28" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_save2.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_action_search.xml" value="0.146875" />
         <entry key="app/src/main/res/drawable-anydpi/ic_like.xml" value="0.28" />
         <entry key="app/src/main/res/drawable-anydpi/ic_like_outline.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_nav_notifications.xml" value="0.146875" />
         <entry key="app/src/main/res/drawable/bg_message_outgoing.xml" value="0.146875" />
         <entry key="app/src/main/res/drawable/bg_navitem.xml" value="0.146875" />
         <entry key="app/src/main/res/layout-land/activity_book_details.xml" value="0.32864583333333336" />
@@ -21,6 +23,11 @@
         <entry key="app/src/main/res/layout/activity_edit_book.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/activity_library.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/fragment_books_list.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/fragment_books_owned.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/fragment_conversations.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/fragment_library.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/view_book.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/view_book_category.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/view_book_list.xml" value="0.2682291666666667" />
@@ -31,6 +38,7 @@
         <entry key="app/src/main/res/menu/menu_books_list.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/menu_edit_book.xml" value="0.2828125" />
+        <entry key="app/src/main/res/menu/menu_main.xml" value="0.2828125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.146875" />
         <entry key="app/src/main/res/mipmap-anydpi/ic_launcher.xml" value="0.146875" />
         <entry key="app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" value="0.146875" />
@@ -87,7 +95,7 @@
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
