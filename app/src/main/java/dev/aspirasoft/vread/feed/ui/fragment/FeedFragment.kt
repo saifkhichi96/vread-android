@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import android.widget.VideoView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
@@ -30,8 +29,6 @@ class FeedFragment : Fragment() {
     private var postsList = ArrayList<Post>()
 
     private lateinit var feedAdapter: FeedAdapter
-
-    private var videoView: VideoView? = null
 
     private var composeView: ComposeView? = null
 
@@ -92,20 +89,17 @@ class FeedFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        videoView?.stopPlayback()
-        videoView?.resume()
+        kotlin.runCatching { feedAdapter.currentVideo?.stop() }
     }
 
     override fun onStop() {
         super.onStop()
-        videoView?.stopPlayback()
-        videoView?.resume()
+        kotlin.runCatching { feedAdapter.currentVideo?.stop() }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        videoView?.stopPlayback()
-        videoView?.resume()
+        kotlin.runCatching { feedAdapter.currentVideo?.stop() }
     }
 
     private fun refreshFeed() {

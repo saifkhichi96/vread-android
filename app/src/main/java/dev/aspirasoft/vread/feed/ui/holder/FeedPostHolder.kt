@@ -1,5 +1,6 @@
 package dev.aspirasoft.vread.feed.ui.holder
 
+import android.media.MediaPlayer
 import android.net.Uri
 import android.view.View
 import android.widget.ImageView
@@ -24,6 +25,8 @@ class FeedPostHolder(binding: ViewFeedPostBinding) : ViewHolder(binding.root) {
     val postVideo: VideoView = binding.postMediaVideo
     val likeButton: MaterialButton = binding.postLikeButton
 
+    var mediaPlayer: MediaPlayer? = null
+
     fun showAttachment(attachmentUrl: String) {
         val filename = attachmentUrl.substringBeforeLast("?")
         val filetype = filename.substringAfterLast(".").lowercase()
@@ -39,6 +42,7 @@ class FeedPostHolder(binding: ViewFeedPostBinding) : ViewHolder(binding.root) {
                     .load(attachmentUrl)
                     .into(postImage)
             }
+
             in supportedVideos -> {
                 postVideo.stopPlayback()
                 postVideo.resume()
@@ -55,8 +59,7 @@ class FeedPostHolder(binding: ViewFeedPostBinding) : ViewHolder(binding.root) {
                 postVideo.setVideoURI(Uri.parse(attachmentUrl))
                 postVideo.setOnPreparedListener {
                     postImage.visibility = View.GONE
-                    postVideo.start()
-                    it.isLooping = true
+                    mediaPlayer = it
                 }
             }
         }

@@ -2,6 +2,7 @@ package dev.aspirasoft.vread.feed.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.media.MediaPlayer
 import android.view.*
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.View.OnTouchListener
@@ -26,6 +27,8 @@ class FeedAdapter(
 
     // FIXME: This should be inside FeedDataSource
     private val likesRef = Firebase.database.getReference("feed/likes/")
+
+    var currentVideo: MediaPlayer? = null
 
     override fun notifyDataSetChanged() {
         posts.sortByDescending { it.timestamp }
@@ -146,6 +149,19 @@ class FeedAdapter(
             })
     }
 
+    private fun onVideoClicked(holder: FeedPostHolder, position: Int) {
+        holder.mediaPlayer?.let {
+            kotlin.runCatching { currentVideo?.stop() }
+            currentVideo = it
+            if (it.isPlaying) {
+                it.pause()
+            } else {
+                it.start()
+                it.isLooping = false
+            }
+        }
+    }
+
     private inner class DoubleTapListener(
         private val holder: FeedPostHolder,
         position: Int,
@@ -158,6 +174,7 @@ class FeedAdapter(
             }
 
             override fun onSingleTapConfirmed(event: MotionEvent): Boolean {
+                onVideoClicked(holder, position)
                 return false
             }
         })
