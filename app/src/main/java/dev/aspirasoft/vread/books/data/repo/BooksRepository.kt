@@ -1,8 +1,9 @@
 package dev.aspirasoft.vread.books.data.repo
 
-import com.orhanobut.hawk.Hawk
 import dev.aspirasoft.vread.books.data.source.BooksDataSource
 import dev.aspirasoft.vread.books.model.Book
+import dev.aspirasoft.vread.core.data.Repository
+import io.github.saifkhichi96.android.db.LocalDatabase
 import javax.inject.Inject
 
 /**
@@ -12,48 +13,17 @@ import javax.inject.Inject
  * @author saifkhichi96
  * @since 1.0.0
  */
-class BooksRepository @Inject constructor(var dataSource: BooksDataSource) {
-
-    /**
-     * In-memory cache of messages
-     */
-    var books: ArrayList<Book>? = null
-        private set
-
-    init {
-        kotlin.runCatching { books = Hawk.get(KEY) }
-    }
-
-    suspend fun listAll(): Result<List<Book>> {
-        val result = dataSource.listAll()
-        result.getOrNull()?.let {
-            setLibraryData(it as ArrayList<Book>)
-        }
-
-        return result
-    }
-
-    fun create() = dataSource.create()
-
-    /**
-     * Updates an existing book.
-     */
-    suspend fun update(book: Book): Boolean {
-        val oldBook = this.books?.find { it.id == book.id }
-        this.books?.remove(oldBook)
-        this.books?.add(book)
-        return dataSource.update(book)
-    }
+class BooksRepository @Inject constructor(
+    dataSource: BooksDataSource,
+    cache: LocalDatabase,
+) : Repository<Book>(dataSource, cache) {
 
     fun getCategories(): List<String> {
-        return this.books.orEmpty()
-            .map { it.category }
-            .distinct()
-            .sorted()
+        return this.data.map { it.category }.distinct().sorted()
     }
 
     suspend fun getGenres(category: String): List<String> {
-        return listAll().getOrNull().orEmpty()
+        return getAll()
             .filter { it.category.equals(category, ignoreCase = true) }
             .map { it.subCategory }
             .distinct()
@@ -61,33 +31,24 @@ class BooksRepository @Inject constructor(var dataSource: BooksDataSource) {
     }
 
     suspend fun renameGenre(category: String, oldGenre: String, newGenre: String) {
-        this.books.orEmpty()
+        this.data
             .filter { it.category == category && it.subCategory == oldGenre }
             .forEach {
                 it.subCategory = newGenre
-                update(it)
+                update(it.id, it)
             }
     }
 
-    suspend fun markAsRead(bookId: String, readerId: String) {
-        dataSource.markAsRead(bookId, readerId)
+    suspend fun setRead(bookId: String, readerId: String) {
+        (dataSource as BooksDataSource).setReadStatus(bookId, readerId, true)
     }
 
-    suspend fun markAsUnread(bookId: String, readerId: String) {
-        dataSource.markAsUnread(bookId, readerId)
+    suspend fun setUnread(bookId: String, readerId: String) {
+        (dataSource as BooksDataSource).setReadStatus(bookId, readerId, false)
     }
 
     suspend fun isRead(bookId: String, readerId: String): Boolean {
-        return dataSource.isRead(bookId, readerId)
-    }
-
-    private fun setLibraryData(books: ArrayList<Book>) {
-        this.books = books
-        Hawk.put(KEY, books)
-    }
-
-    companion object {
-        private const val KEY = "books"
+        return (dataSource as BooksDataSource).getReadStatus(bookId, readerId)
     }
 
 }

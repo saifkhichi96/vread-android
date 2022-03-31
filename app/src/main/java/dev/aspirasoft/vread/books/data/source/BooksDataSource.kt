@@ -1,66 +1,49 @@
 package dev.aspirasoft.vread.books.data.source
 
 import dev.aspirasoft.vread.books.model.Book
+import dev.aspirasoft.vread.core.data.DataSource
 import io.github.saifkhichi96.android.db.RemoteDatabase
 import javax.inject.Inject
 
 /**
+ * Data source for books.
  *
+ * This class is responsible for fetching and storing user books from the
+ * remote database. It provides methods for creating, updating, deleting and
+ * retrieving books.
  *
- * @author saifkhichi96
+ * @author AspiraSoft
+ * @since 0.0.1
+ *
+ * @constructor Creates a new data source for books.
+ * @param db The remote database to use for data storage.
  */
-class BooksDataSource @Inject constructor(var db: RemoteDatabase) {
+class BooksDataSource @Inject constructor(db: RemoteDatabase) : DataSource<Book>(db, Book::class.java) {
 
-    private val root = "library"
-
-    /**
-     * Adds a new book.
-     */
-    suspend fun add(book: Book) {
-        val childKey = db.createEmptyChild(root)
-        book.id = childKey
-
-        db.createChild(root, childKey, book)
-    }
-
-    fun create() = db.createEmptyChild(root)
-
-    suspend fun get(bookId: String): Book? {
-        return db.getOrNull("$root/${bookId}")
-    }
+    override val root = "library"
 
     /**
-     * Updates an existing book.
+     * Set read status of a book for a user.
+     *
+     * @param bookId ID of the book to update.
+     * @param readerId The user ID of the reader.
+     * @param read Whether the book has been read or not.
      */
-    suspend fun update(book: Book): Boolean {
-        if (book.id.isBlank()) return false
-
-        db.update("$root/${book.id}", book)
-        return true
-    }
-
-    /**
-     * Gets a list of all clients.
-     */
-    suspend fun listAll(): Result<List<Book>> {
-        return try {
-            val books = db.list(root, Book::class.java, null, null)
-
-            Result.success(books)
-        } catch (ex: Exception) {
-            Result.failure(ex)
+    suspend fun setReadStatus(bookId: String, readerId: String, read: Boolean) {
+        when {
+            read -> db.update("users/${readerId}/books_read/${bookId}", true)
+            else -> db.remove("users/${readerId}/books_read/${bookId}")
         }
     }
 
-    suspend fun markAsRead(bookId: String, readerId: String) {
-        db.update("users/${readerId}/books_read/${bookId}", true)
-    }
-
-    suspend fun markAsUnread(bookId: String, readerId: String) {
-        db.remove("users/${readerId}/books_read/${bookId}")
-    }
-
-    suspend fun isRead(bookId: String, readerId: String): Boolean {
+    /**
+     * Get read status of a book for a user.
+     *
+     * @param bookId ID of the book to update.
+     * @param readerId The user ID of the reader.
+     * @return Whether the book has been read or not.
+     */
+    suspend fun getReadStatus(bookId: String, readerId: String): Boolean {
         return db.getOrNull("users/${readerId}/books_read/${bookId}") ?: false
     }
 
