@@ -8,12 +8,25 @@
         <entry key="app/src/main/res/drawable-anydpi/ic_action_done.xml" value="0.146875" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_edit.xml" value="0.146875" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_edit2.xml" value="0.146875" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_action_pending.xml" value="0.1885" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_save.xml" value="0.28" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_save2.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_action_scan.xml" value="0.1885" />
         <entry key="app/src/main/res/drawable-anydpi/ic_action_search.xml" value="0.146875" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_action_send.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_action_unfollow.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_action_upload.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_bio.xml" value="0.1885" />
         <entry key="app/src/main/res/drawable-anydpi/ic_like.xml" value="0.28" />
         <entry key="app/src/main/res/drawable-anydpi/ic_like_outline.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_lock.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_nav_chats.xml" value="0.1885" />
         <entry key="app/src/main/res/drawable-anydpi/ic_nav_notifications.xml" value="0.146875" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_nav_post.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_nav_scores.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/bg_indicator_active.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/bg_indicator_inactive.xml" value="0.1885" />
+        <entry key="app/src/main/res/drawable/bg_message_incoming.xml" value="0.1885" />
         <entry key="app/src/main/res/drawable/bg_message_outgoing.xml" value="0.146875" />
         <entry key="app/src/main/res/drawable/bg_navitem.xml" value="0.146875" />
         <entry key="app/src/main/res/layout-land/activity_book_details.xml" value="0.32864583333333336" />
@@ -37,8 +50,12 @@
         <entry key="app/src/main/res/menu/menu_book_details.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/menu_books_list.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.2828125" />
+        <entry key="app/src/main/res/menu/menu_compose.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/menu_edit_book.xml" value="0.2828125" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.2828125" />
+        <entry key="app/src/main/res/menu/menu_navigation.xml" value="0.2828125" />
+        <entry key="app/src/main/res/menu/menu_profile.xml" value="0.2828125" />
+        <entry key="app/src/main/res/menu/menu_settings.xml" value="0.2828125" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.146875" />
         <entry key="app/src/main/res/mipmap-anydpi/ic_launcher.xml" value="0.146875" />
         <entry key="app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" value="0.146875" />
