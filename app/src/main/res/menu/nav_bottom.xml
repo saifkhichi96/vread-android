@@ -4,25 +4,25 @@
 
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_nav_home"
         android:title="@string/title_fragment_home"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/nav_library"
-        android:icon="@drawable/ic_shelves"
+        android:icon="@drawable/ic_nav_library"
         android:title="@string/title_fragment_library"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/nav_shelves"
-        android:icon="@drawable/ic_favorites"
+        android:icon="@drawable/ic_nav_shelves"
         android:title="@string/title_fragment_shelves"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_profile"
+        android:icon="@drawable/ic_nav_settings"
         android:title="@string/title_fragment_settings"
         app:showAsAction="ifRoom" />
 
