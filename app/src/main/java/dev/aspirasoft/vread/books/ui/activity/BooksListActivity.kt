@@ -60,10 +60,10 @@ class BooksListActivity : AppCompatActivity() {
     /**
      * Observes the result of the refresh operation.
      */
-    private val refreshResultObserver = Observer<Result<List<Book>>> {
+    private val refreshResultObserver = Observer<List<Book>> {
         binding.swipeRefresh.isRefreshing = false
         try {
-            val data = it.getOrThrow()
+            val data = it
             onRefreshed(data)
         } catch (ex: Exception) {
             onRefreshFailed(ex.message ?: ex::class.java.simpleName)
@@ -88,7 +88,7 @@ class BooksListActivity : AppCompatActivity() {
         supportActionBar?.title = subCategoryFilter ?: categoryFilter ?: getString(R.string.title_activity_library)
         if (subCategoryFilter == "Uncategorized") subCategoryFilter = ""
 
-        booksAdapter = LibraryAdapter(this, library, grid = subCategoryFilter != null)
+        booksAdapter = LibraryAdapter(this, library, grid = subCategoryFilter != null, repo, currentUserId)
         booksAdapter.setOnItemClickListener { book, view -> openBookDetails(book, view) }
         booksAdapter.setOnCategoryClickListener { openLibrary(it) }
 

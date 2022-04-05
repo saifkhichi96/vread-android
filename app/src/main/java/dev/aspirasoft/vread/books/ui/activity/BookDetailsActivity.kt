@@ -17,7 +17,7 @@ import com.google.zxing.BarcodeFormat
 import com.saifkhichi.storage.CloudFileStorage
 import dagger.hilt.android.AndroidEntryPoint
 import dev.aspirasoft.vread.R
-import dev.aspirasoft.vread.books.data.source.BooksDataSource
+import dev.aspirasoft.vread.books.data.repo.BooksRepository
 import dev.aspirasoft.vread.books.data.source.GoogleBooksAPI
 import dev.aspirasoft.vread.books.model.Book
 import dev.aspirasoft.vread.books.util.BarcodeEncoder
@@ -41,9 +41,8 @@ class BookDetailsActivity : AppCompatActivity() {
     private lateinit var currentUserId: String
     private var currentUserAdmin: Boolean = false
 
-    // fixme: replace with repository
     @Inject
-    lateinit var repo: BooksDataSource
+    lateinit var repo: BooksRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         findViewById<View>(android.R.id.content).transitionName = "open_book_details"
@@ -126,6 +125,7 @@ class BookDetailsActivity : AppCompatActivity() {
 
     private fun setReadStatus(read: Boolean) {
         bookIsRead = read
+        // fixme: show read status
 //        if (read) {
 //            readButton.isVisible = false
 //            unreadButton.isVisible = true
@@ -139,7 +139,7 @@ class BookDetailsActivity : AppCompatActivity() {
         Snackbar.make(binding.root, "Do you really want to mark this book as read?", Snackbar.LENGTH_LONG)
             .setAction(android.R.string.ok) {
                 lifecycleScope.launch {
-                    repo.markAsRead(book.id, currentUserId)
+                    repo.setRead(book.id, currentUserId)
                     setReadStatus(true)
                 }
             }.show()
@@ -149,7 +149,7 @@ class BookDetailsActivity : AppCompatActivity() {
         Snackbar.make(binding.root, "Do you really want to mark this book as unread?", Snackbar.LENGTH_LONG)
             .setAction(android.R.string.ok) {
                 lifecycleScope.launch {
-                    repo.markAsUnread(book.id, currentUserId)
+                    repo.setUnread(book.id, currentUserId)
                     setReadStatus(false)
                 }
             }.show()

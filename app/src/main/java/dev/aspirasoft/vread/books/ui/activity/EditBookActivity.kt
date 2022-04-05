@@ -184,7 +184,7 @@ class EditBookActivity : AppCompatActivity() {
         book.lang = binding.bookLanguage.text.toString()
         book.pageCount = binding.bookPages.text.toString().toInt()
 
-        repo.update(book)
+        repo.update(book.id, book)
         setResult(RESULT_OK)
         finish()
     }

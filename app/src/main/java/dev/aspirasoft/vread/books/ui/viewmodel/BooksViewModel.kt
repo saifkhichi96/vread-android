@@ -19,13 +19,11 @@ import javax.inject.Inject
 @HiltViewModel
 class BooksViewModel @Inject constructor(var repository: BooksRepository) : ViewModel() {
 
-    private val _books = MutableLiveData<Result<List<Book>>>()
-    val books: LiveData<Result<List<Book>>> = _books
+    private val _books = MutableLiveData<List<Book>>()
+    val books: LiveData<List<Book>> = _books
 
     init {
-        repository.books?.let {
-            _books.value = Result.success(it)
-        }
+        _books.value = repository.data
     }
 
     /**
@@ -34,7 +32,7 @@ class BooksViewModel @Inject constructor(var repository: BooksRepository) : View
      */
     fun getAllBooks() {
         viewModelScope.launch {
-            val result = repository.listAll()
+            val result = repository.getAll()
             _books.value = result
         }
     }

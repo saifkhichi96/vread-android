@@ -42,6 +42,7 @@
         <entry key="app/src/main/res/layout/activity_edit_book.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/activity_library.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/fragment_books.xml" value="0.15896739130434784" />
         <entry key="app/src/main/res/layout/fragment_books_list.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/fragment_books_owned.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/fragment_conversations.xml" value="0.2682291666666667" />

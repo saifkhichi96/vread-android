@@ -5,13 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.aspirasoft.vread.R
+import dev.aspirasoft.vread.books.data.repo.BooksRepository
 import dev.aspirasoft.vread.books.model.Book
-import dev.aspirasoft.vread.books.ui.activity.BooksListActivity
 import dev.aspirasoft.vread.books.ui.holder.BookGenreLabelHolder
 import dev.aspirasoft.vread.books.ui.holder.BookListHolder
 import dev.aspirasoft.vread.databinding.ViewBookCategoryBinding
@@ -21,9 +22,11 @@ import kotlin.math.roundToInt
 
 
 class LibraryAdapter(
-    private val context: BooksListActivity,
+    private val context: FragmentActivity,
     private val dataset: ArrayList<LibraryListItem<out Any>>,
     private val grid: Boolean = false,
+    private val repo: BooksRepository,
+    private val currentUserId: String,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
     private var filteredDataset = ArrayList<LibraryListItem<out Any>>()
@@ -117,7 +120,7 @@ class LibraryAdapter(
                                 .sortedBy { it.title }
                                 .sortedBy { it.publishedOn }
                                 .sortedBy { it.authors }
-                                .map { Pair(it, context.repo.isRead(it.id, context.currentUserId)) },
+                                .map { Pair(it, repo.isRead(it.id, currentUserId)) },
                             colWidthCalc
                         )
                         adapter.setOnItemClickListener { book, view -> onItemClicked?.invoke(book, view) }

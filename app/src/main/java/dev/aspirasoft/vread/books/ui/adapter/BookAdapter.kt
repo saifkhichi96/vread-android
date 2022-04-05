@@ -3,7 +3,7 @@ package dev.aspirasoft.vread.books.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import dev.aspirasoft.vread.books.model.Book
 import dev.aspirasoft.vread.books.ui.holder.BookHolder
@@ -11,7 +11,7 @@ import dev.aspirasoft.vread.databinding.ViewBookBinding
 import kotlin.math.roundToInt
 
 class BookAdapter(
-    private val context: AppCompatActivity,
+    private val context: FragmentActivity,
     private val dataset: List<Pair<Book, Boolean>>,
     private val itemWidth: Int,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

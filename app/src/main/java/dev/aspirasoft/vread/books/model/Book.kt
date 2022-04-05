@@ -33,7 +33,7 @@ data class Book(
     var publishedBy: String = "",
     var publishedOn: Int = 0,
     var pageCount: Int = 0,
-    var format: Format = Format.Other,
+    var format: Format = Format.Paperback,
     var lang: String = "",
     var excerpt: String = "",
 ) : Serializable {
