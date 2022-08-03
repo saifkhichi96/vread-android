@@ -1,10 +1,8 @@
 package dev.aspirasoft.vread.books.util;
 
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import com.journeyapps.barcodescanner.ScanContract
-import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
 
 
@@ -20,18 +18,20 @@ import com.journeyapps.barcodescanner.ScanOptions
  * @property scanOptions The default scan options to use.
  * @property scanLauncher The [ActivityResultLauncher] to launch the scan activity.
  */
-class BarcodeScanner(activity: AppCompatActivity, callback: ActivityResultCallback<ScanIntentResult>) {
+class BarcodeScanner(activity: AppCompatActivity, callback: (String?) -> Unit) {
 
     private val scanOptions = ScanOptions().apply {
-        this.setDesiredBarcodeFormats(listOf(ScanOptions.EAN_8, ScanOptions.EAN_13))
+        this.setDesiredBarcodeFormats(ScanOptions.EAN_13)
         this.setPrompt("Scan a book barcode")
-        // this.setCameraId(0) // Use a specific camera of the device
         this.setBeepEnabled(true)
         this.setBarcodeImageEnabled(true)
     }
 
     private val scanLauncher: ActivityResultLauncher<ScanOptions> =
-        activity.registerForActivityResult(ScanContract(), callback)
+        activity.registerForActivityResult(ScanContract()) {
+            val barcode = it?.contents ?: ""
+            callback(barcode)
+        }
 
     /**
      * Starts the scan activity.

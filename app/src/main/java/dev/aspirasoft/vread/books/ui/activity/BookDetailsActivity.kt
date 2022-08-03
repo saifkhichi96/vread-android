@@ -22,6 +22,7 @@ import dev.aspirasoft.vread.books.data.source.GoogleBooksAPI
 import dev.aspirasoft.vread.books.model.Book
 import dev.aspirasoft.vread.books.util.BarcodeEncoder
 import dev.aspirasoft.vread.databinding.ActivityBookDetailsBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -177,11 +178,10 @@ class BookDetailsActivity : AppCompatActivity() {
             if (book.publishedOn > 0) getString(R.string.book_publish_year).format(book.publishedOn) else ""
         )
 
-        binding.bookIsbn.text = book.isbn
         binding.bookDescription.text = book.excerpt.ifBlank { getString(R.string.book_description_none) }
 
-        // if isbn is available
         val isbn = book.isbn13()
+        binding.bookIsbn.text = isbn
         if (isbn.isNotBlank()) {
             try {
                 val barcodeEncoder = BarcodeEncoder()
@@ -190,13 +190,13 @@ class BookDetailsActivity : AppCompatActivity() {
                 theme.resolveAttribute(R.attr.colorOnSurface, qrColor, true)
                 barcodeEncoder.setForegroundColor(qrColor.data)
                 barcodeEncoder.setBackgroundColor(Color.TRANSPARENT)
-                val bitmap = barcodeEncoder.encodeBitmap(book.isbn13(), BarcodeFormat.EAN_13, 512, 128)
+                val bitmap = barcodeEncoder.encodeBitmap(isbn, BarcodeFormat.EAN_13, 512, 128)
                 binding.bookBarcode.setImageBitmap(bitmap)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
 
-            Thread {
+            lifecycleScope.launch(Dispatchers.IO) {
                 GoogleBooksAPI.findByISBN(isbn).firstOrNull()?.let { book ->
                     runOnUiThread {
                         binding.previewButton.visibility = View.VISIBLE
@@ -212,7 +212,7 @@ class BookDetailsActivity : AppCompatActivity() {
                         }
                     }
                 }
-            }.start()
+            }
 
         }
     }

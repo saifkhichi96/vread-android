@@ -40,42 +40,28 @@ data class Book(
 
     fun cover(): String = "$id.jpg"
 
-    fun isbn13(): String {
-        return if (isbn.length == 10) {
-            var isbn13: String = isbn
-            isbn13 = "978" + isbn13.substring(0, 9)
-            var d: Int
-
-            var sum = 0
-            for (i in isbn13.indices) {
-                d = if (i % 2 == 0) 1 else 3
-                sum += (isbn13[i].code - 48) * d
-            }
-            sum = 10 - sum % 10
-            isbn13 += sum
-
-            isbn13
-        } else {
-            isbn
-        }
-    }
+    /**
+     * Returns the ISBN-13 version of the book's ISBN, if available.
+     */
+    fun isbn13() = kotlin.runCatching { ISBN(isbn).toString() }.getOrDefault(isbn)
 
     /**
      * Fill in missing details from Google Books.
      *
      * @param volume The volume to update with.
+     * @param overwrite Whether to overwrite existing values. Defaults to true.
      */
-    fun updateWith(volume: Volume) {
+    fun updateWith(volume: Volume, overwrite: Boolean = true) {
         val volumeInfo: VolumeInfo? = volume.volumeInfo
 
-        if (isbn.isBlank()) isbn = volumeInfo?.industryIdentifiers?.find { it.type == "ISBN_13" }?.identifier ?: ""
-        if (title.isBlank()) title = volumeInfo?.title ?: ""
-        if (authors.isBlank()) authors = volumeInfo?.authors?.joinToString(", ") ?: ""
-        if (publishedBy.isBlank()) publishedBy = volumeInfo?.publisher ?: ""
-        if (publishedOn <= 0) publishedOn = Integer.parseInt(volumeInfo?.publishedDate?.split("-")?.first() ?: "0")
-        if (pageCount <= 0) pageCount = volumeInfo?.pageCount ?: 0
-        if (lang.isBlank()) lang = Locale(volumeInfo?.language ?: "en").displayLanguage
-        if (excerpt.isBlank()) excerpt =
+        if (overwrite || isbn.isBlank()) isbn = volumeInfo?.industryIdentifiers?.find { it.type == "ISBN_13" }?.identifier ?: ""
+        if (overwrite || title.isBlank()) title = volumeInfo?.title ?: ""
+        if (overwrite || authors.isBlank()) authors = volumeInfo?.authors?.joinToString(", ") ?: ""
+        if (overwrite || publishedBy.isBlank()) publishedBy = volumeInfo?.publisher ?: ""
+        if (overwrite || publishedOn <= 0) publishedOn = Integer.parseInt(volumeInfo?.publishedDate?.split("-")?.first() ?: "0")
+        if (overwrite || pageCount <= 0) pageCount = volumeInfo?.pageCount ?: 0
+        if (overwrite || lang.isBlank()) lang = Locale(volumeInfo?.language ?: "en").displayLanguage
+        if (overwrite || excerpt.isBlank()) excerpt =
             Html.fromHtml(volume.searchInfo?.textSnippet ?: "", Html.FROM_HTML_MODE_LEGACY).toString()
     }
 

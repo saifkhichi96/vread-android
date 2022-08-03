@@ -21,9 +21,11 @@ import dev.aspirasoft.vread.books.data.source.GoogleBooksAPI
 import dev.aspirasoft.vread.books.model.Book
 import dev.aspirasoft.vread.books.model.Book.Companion.toByteArray
 import dev.aspirasoft.vread.books.model.Format
+import dev.aspirasoft.vread.books.model.ISBN
 import dev.aspirasoft.vread.books.ui.activity.BookDetailsActivity.Companion.EXTRA_BOOK
 import dev.aspirasoft.vread.books.util.BarcodeScanner
 import dev.aspirasoft.vread.databinding.ActivityEditBookBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -68,7 +70,19 @@ class EditBookActivity : AppCompatActivity() {
         }
 
         // Create the barcode scanner
-        scanner = BarcodeScanner(this) { it?.contents?.let(::onBarcodeScanned) }
+        scanner = BarcodeScanner(this) { barcode ->
+            kotlin.runCatching {
+                val isbn = ISBN(barcode!!).toString()
+                onISBNScanned(isbn)
+            }.onFailure { ex ->
+                val error = when (ex) {
+                    is IllegalArgumentException -> "Invalid ISBN"
+                    is NullPointerException -> "No barcode found"
+                    else -> "Failed to scan barcode"
+                }
+                Snackbar.make(binding.root, error, Snackbar.LENGTH_SHORT).show()
+            }
+        }
 
         updateUI()
 
@@ -197,17 +211,44 @@ class EditBookActivity : AppCompatActivity() {
         book.getBookCover(this@EditBookActivity, binding.bookCover, true)
     }
 
-    private fun onBarcodeScanned(barcode: String) = Thread {
-        runOnUiThread { binding.bookIsbn.setText(barcode) }
-        GoogleBooksAPI.findByISBN(barcode).firstOrNull()?.let {
-            runOnUiThread {
-                book.updateWith(it)
-                updateUI()
+    /**
+     * Called when a valid ISBN is scanned.
+     *
+     * If a book with the same ISBN does not already exist, the book details
+     * are fetched from the Google Books API and, if found, the UI is updated.
+     *
+     * @param isbn The ISBN of the scanned book.
+     */
+    private fun onISBNScanned(isbn: String) {
+        // Check if a book with the same ISBN already exists (or is being edited)
+        if (creatingBook) {
+            val books = repo.data
+            val existing = books.find { it.isbn == isbn }
+            if (existing != null) {
+                showError("Book already exists")
+                return
             }
         }
-    }.start()
 
-    private fun updateUI() {
+        // Fetch book details from Google Books API
+        lifecycleScope.launch(Dispatchers.IO) {
+            val volumes = GoogleBooksAPI.findByISBN(isbn) // List of books with the same ISBN
+            if (volumes.isEmpty()) {
+                showError("No book found with ISBN $isbn")
+                return@launch
+            }
+
+            book.updateWith(volumes[0], overwrite = creatingBook)  // Use the first book in the list
+            updateUI()  // Update UI with book details
+        }
+    }
+
+    /**
+     * Updates the UI with the book details.
+     *
+     * This method always runs on the UI thread.
+     */
+    private fun updateUI() = runOnUiThread {
         book.getBookCover(this, binding.bookCover)
         binding.bookTitle.setText(book.title)
         binding.bookAuthors.setText(book.authors)
@@ -220,6 +261,15 @@ class EditBookActivity : AppCompatActivity() {
         binding.bookPublisher.setText(book.publishedBy)
         binding.bookPublishYear.setText(book.publishedOn.toString())
         binding.bookDescription.setText(book.excerpt)
+    }
+
+    /**
+     * Shows an error message.
+     *
+     * This method always runs on the UI thread.
+     */
+    private fun showError(error: String) = runOnUiThread {
+        Snackbar.make(binding.root, error, Snackbar.LENGTH_SHORT).show()
     }
 
     companion object {

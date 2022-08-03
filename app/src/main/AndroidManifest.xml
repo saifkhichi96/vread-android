@@ -100,6 +100,12 @@
     <activity android:name=".books.ui.activity.EditBookActivity" />
     <activity android:name=".books.ui.activity.BookDetailsActivity" />
 
+    <!-- Barcode Scanning -->
+    <activity
+        android:name="com.journeyapps.barcodescanner.CaptureActivity"
+        android:screenOrientation="portrait"
+        tools:replace="screenOrientation" />
+
 
     <!-- Others -->
     <activity android:name=".settings.ui.activity.HelpActivity"/>
