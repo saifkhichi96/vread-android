@@ -20,12 +20,12 @@
             android:text="Menu" />
 
         <com.google.android.material.card.MaterialCardView
-            style="@style/Widget.Material3.CardView.Filled"
             android:id="@+id/profile_card"
+            style="@style/Widget.Material3.CardView.Filled"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginHorizontal="4dp"
+            android:layout_marginTop="16dp"
             app:contentPadding="8dp">
 
             <LinearLayout
@@ -47,15 +47,15 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textview.MaterialTextView
-                        style="@style/TextAppearance.Material3.HeadlineSmall"
                         android:id="@+id/name"
+                        style="@style/TextAppearance.Material3.HeadlineSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="@tools:sample/full_names" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        style="@style/TextAppearance.Material3.LabelSmall"
                         android:id="@+id/username"
+                        style="@style/TextAppearance.Material3.LabelSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="@tools:sample/first_names" />
@@ -73,80 +73,80 @@
             android:columnCount="2">
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/action_get_help"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="2dp"
                 android:text="Help"
                 android:textAllCaps="false"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="2dp"
                 app:cornerRadius="8dp" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="2dp"
                 android:text="Push Notifications"
                 android:textAllCaps="false"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="2dp"
                 app:cornerRadius="8dp" />
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/action_change_password"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="2dp"
                 android:text="Change Password"
                 android:textAllCaps="false"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="2dp"
                 app:cornerRadius="8dp" />
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/action_delete_account"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="2dp"
                 android:text="Delete Account"
                 android:textAllCaps="false"
-                android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="2dp"
                 app:cornerRadius="8dp" />
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/signout"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:layout_columnWeight="1"
                 android:layout_columnSpan="2"
-                android:text="Log Out"
-                android:textAllCaps="false"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill_horizontal"
                 android:layout_marginHorizontal="4dp"
                 android:layout_marginVertical="2dp"
+                android:text="Log Out"
+                android:textAllCaps="false"
                 app:cornerRadius="8dp" />
 
         </GridLayout>
 
         <com.google.android.material.textview.MaterialTextView
-            style="@style/TextAppearance.Material3.LabelSmall"
             android:id="@+id/appVersion"
+            style="@style/TextAppearance.Material3.LabelSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginHorizontal="4dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginTop="16dp"
             android:text="@string/app_version" />
 
     </LinearLayout>

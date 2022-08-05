@@ -4,34 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-  <com.google.android.material.appbar.AppBarLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="top">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top">
 
-      <com.google.android.material.appbar.MaterialToolbar
-          style="@style/App.Widget.Toolbar"
-          android:id="@+id/toolbar"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          app:layout_scrollFlags="noScroll" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/App.Widget.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="noScroll" />
 
-  </com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-  <dev.aspirasoft.vread.core.ui.view.SwipelessViewPager
-      android:id="@+id/profileContent"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:paddingBottom="?actionBarSize"
-      app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    <dev.aspirasoft.vread.core.ui.view.SwipelessViewPager
+        android:id="@+id/profileContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?actionBarSize"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-  <com.google.android.material.bottomnavigation.BottomNavigationView
-      android:id="@+id/bottom_navigation"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="bottom"
-      app:elevation="8dp"
-      app:labelVisibilityMode="unlabeled"
-      app:menu="@menu/nav_bottom" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:elevation="8dp"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/nav_bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

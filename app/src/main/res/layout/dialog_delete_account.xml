@@ -1,103 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:contentPadding="16dp">
 
-  <LinearLayout
-      android:id="@+id/main_content"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical">
-
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextAppearance.Material3.HeadlineSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        android:gravity="center"
-        android:text="Confirm Account Deletion"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextAppearance.Material3.BodySmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"
-        android:text="Understand that this action is final and cannot be restored. Proceed with caution."/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordWrapper"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+    <LinearLayout
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Re-Enter Password">
+        android:orientation="vertical">
 
-      <com.google.android.material.textfield.TextInputEditText
-          android:id="@+id/passwordField"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="start|center_vertical"
-          android:orientation="vertical"
-          android:textAllCaps="false"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextAppearance.Material3.HeadlineSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="Confirm Account Deletion" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:text="Understand that this action is final and cannot be restored. Proceed with caution." />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        style="@style/TextAppearance.Material3.BodySmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="By entering your password, you confirm that you want your account closed all your data to be erased from our servers." />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordWrapper"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Re-Enter Password">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:orientation="vertical"
+                android:textAllCaps="false" />
 
-      <com.google.android.material.button.MaterialButton
-          android:id="@+id/cancel_button"
-          style="@style/Widget.Material3.Button.TextButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="end"
-          android:text="Cancel"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-      <com.google.android.material.button.MaterialButton
-          android:id="@+id/submit_button"
-          style="@style/Widget.Material3.Button.TextButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="end"
-          android:text="Delete"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="By entering your password, you confirm that you want your account closed all your data to be erased from our servers." />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancel_button"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Cancel" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submit_button"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Delete" />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
-  </LinearLayout>
-
-  <ProgressBar
-      android:id="@+id/progress_bar"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:indeterminate="true"
-      android:visibility="gone"/>
-
-  <androidx.appcompat.widget.AppCompatTextView
-      android:id="@+id/confirmation"
-      style="@style/TextAppearance.Material3.HeadlineSmall"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_margin="16dp"
-      android:gravity="center"
-      android:text="Account successfully deleted."
-      android:visibility="gone"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/confirmation"
+        style="@style/TextAppearance.Material3.HeadlineSmall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:text="Account successfully deleted."
+        android:visibility="gone" />
 
 </com.google.android.material.card.MaterialCardView>

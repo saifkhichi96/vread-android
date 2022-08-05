@@ -3,7 +3,7 @@
 
     <solid android:color="?attr/colorOnTertiaryContainer" />
     <corners
-        android:topRightRadius="5dp"
-        android:radius="20dp" />
+        android:radius="20dp"
+        android:topRightRadius="5dp" />
 
 </shape>

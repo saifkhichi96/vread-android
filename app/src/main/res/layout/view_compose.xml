@@ -15,22 +15,22 @@
             style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintEnabled="false"
-            app:boxCornerRadiusTopStart="0dp"
-            app:boxCornerRadiusTopEnd="0dp"
-            app:boxCornerRadiusBottomStart="0dp"
             app:boxCornerRadiusBottomEnd="0dp"
+            app:boxCornerRadiusBottomStart="0dp"
+            app:boxCornerRadiusTopEnd="0dp"
+            app:boxCornerRadiusTopStart="0dp"
             app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/compose_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxHeight="192dp"
-                android:paddingVertical="8dp"
                 android:hint="@string/hint_compose"
-                android:inputType="text|textMultiLine" />
+                android:inputType="text|textMultiLine"
+                android:maxHeight="192dp"
+                android:paddingVertical="8dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,8 +40,8 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.IconButton"
                 android:id="@+id/attachment_button"
+                style="@style/Widget.Material3.Button.IconButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLength="10"
@@ -54,8 +54,8 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.Material3.Button.TextButton"
                     android:id="@+id/submit_button"
+                    style="@style/Widget.Material3.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Post"
